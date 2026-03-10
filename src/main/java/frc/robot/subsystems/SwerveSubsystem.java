@@ -26,7 +26,7 @@ public class SwerveSubsystem extends SubsystemBase {
         SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH;
 
         try {
-            swerveDrive = new SwerveParser(directory).createSwerveDrive(DriveConstants.MAX_SPEED_MPS);
+            swerveDrive = new SwerveParser(directory).createSwerveDrive(DriveConstants.MAX_SPEED);
         } catch (IOException e) {
             throw new RuntimeException("Failed to create swerve drive from config directory: " + directory, e);
         }
@@ -37,25 +37,29 @@ public class SwerveSubsystem extends SubsystemBase {
 
     // --- Drive Commands ---
 
-    /** Field-relative drive command using left stick for translation, right stick for rotation. */
-    public Command driveCommand(DoubleSupplier translationX, DoubleSupplier translationY, DoubleSupplier angularRotation) {
+    /**
+     * Field-relative drive command using left stick for translation, right stick
+     * for rotation.
+     */
+    public Command driveCommand(DoubleSupplier translationX, DoubleSupplier translationY,
+            DoubleSupplier angularRotation) {
         return run(() -> {
             swerveDrive.drive(
-                SwerveMath.scaleTranslation(
-                    new edu.wpi.first.math.geometry.Translation2d(
-                        translationX.getAsDouble() * swerveDrive.getMaximumChassisVelocity(),
-                        translationY.getAsDouble() * swerveDrive.getMaximumChassisVelocity()
-                    ),
-                    0.8
-                ),
-                Math.pow(angularRotation.getAsDouble(), 3) * swerveDrive.getMaximumChassisAngularVelocity(),
-                true,  // field-relative
-                false  // open loop
+                    SwerveMath.scaleTranslation(
+                            new edu.wpi.first.math.geometry.Translation2d(
+                                    translationX.getAsDouble() * swerveDrive.getMaximumChassisVelocity(),
+                                    translationY.getAsDouble() * swerveDrive.getMaximumChassisVelocity()),
+                            0.8),
+                    Math.pow(angularRotation.getAsDouble(), 3) * swerveDrive.getMaximumChassisAngularVelocity(),
+                    true, // field-relative
+                    false // open loop
             );
         });
     }
 
-    /** Robot-relative drive with explicit ChassisSpeeds (used by path followers). */
+    /**
+     * Robot-relative drive with explicit ChassisSpeeds (used by path followers).
+     */
     public void driveRobotRelative(ChassisSpeeds speeds) {
         swerveDrive.drive(speeds);
     }
@@ -109,5 +113,6 @@ public class SwerveSubsystem extends SubsystemBase {
     }
 
     @Override
-    public void simulationPeriodic() {}
+    public void simulationPeriodic() {
+    }
 }
