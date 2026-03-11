@@ -26,7 +26,7 @@ public class RobotContainer {
         drivebase.setDefaultCommand(
             drivebase.driveCommand(
                 () -> MathUtil.applyDeadband(-driverController.getLeftY(),  OperatorConstants.LEFT_Y_DEADBAND),
-                () -> MathUtil.applyDeadband(-driverController.getLeftX(),  OperatorConstants.LEFT_X_DEADBAND),
+                () -> MathUtil.applyDeadband(driverController.getLeftX(),  OperatorConstants.LEFT_X_DEADBAND),
                 () -> MathUtil.applyDeadband(-driverController.getRightX(), OperatorConstants.RIGHT_X_DEADBAND)
             )
         );
