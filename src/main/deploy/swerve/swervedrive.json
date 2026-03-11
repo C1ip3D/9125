@@ -14,7 +14,7 @@
   "maxModuleSpeed": 3.048,
   "maxSpeed": 3.048,
   "angleJoystickRadiusDeadband": 0.5,
-  "wheelBase": 0.6096,
-  "trackWidth": 0.6096,
+  "wheelBase": 0.60,
+  "trackWidth": 0.60,
   "optimalVoltage": 12.0
 }
