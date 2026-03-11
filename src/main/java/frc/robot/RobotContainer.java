@@ -6,7 +6,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.Constants.TurretConstants;
+import frc.robot.commands.TurretRotationCommand;
 import frc.robot.subsystems.SwerveSubsystem;
+import frc.robot.subsystems.TurretSubsystem;
 
 import java.io.File;
 
@@ -15,6 +18,9 @@ public class RobotContainer {
     private final SwerveSubsystem drivebase = new SwerveSubsystem(
         new File(Filesystem.getDeployDirectory(), "swerve")
     );
+
+    private final TurretSubsystem turret = new TurretSubsystem();
+    private final LimelightVision limelight = new LimelightVision(TurretConstants.LIMELIGHT_NAME);
 
     private final CommandXboxController driverController =
         new CommandXboxController(OperatorConstants.DRIVER_CONTROLLER_PORT);
@@ -30,6 +36,9 @@ public class RobotContainer {
                 () -> MathUtil.applyDeadband(driverController.getRightX(), OperatorConstants.RIGHT_X_DEADBAND)
             )
         );
+
+        // Default turret command: always track the nearest AprilTag
+        turret.setDefaultCommand(new TurretRotationCommand(limelight, turret));
     }
 
     private void configureBindings() {
