@@ -11,6 +11,8 @@ import frc.robot.subsystems.SwerveSubsystem;
 
 import java.io.File;
 
+import com.ctre.phoenix6.hardware.Pigeon2;
+
 public class RobotContainer {
 
     private final SwerveSubsystem drivebase = new SwerveSubsystem(
@@ -19,6 +21,8 @@ public class RobotContainer {
 
     private final LimelightVision limelight = new LimelightVision(TurretConstants.LIMELIGHT_NAME);
 
+    private final Pigeon2 imu = new Pigeon2(13);
+    
     private final CommandXboxController driverController =
         new CommandXboxController(OperatorConstants.DRIVER_CONTROLLER_PORT);
 
@@ -38,6 +42,10 @@ public class RobotContainer {
 
     public LimelightVision getLimelight() {
         return limelight;
+    }
+
+    public Pigeon2 getIMU() {
+        return imu;
     }
 
     private void configureBindings() {
