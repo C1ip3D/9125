@@ -1,32 +1,65 @@
 package frc.robot;
 
+import java.io.File;
+
+import com.ctre.phoenix6.hardware.Pigeon2;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.TurretRotationCommand;
+import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.Constants.OperatorConstants;
+import frc.robot.Constants.TurretConstants;
+import frc.robot.commands.AutoAim;
+import frc.robot.subsystems.SwerveSubsystem;
+import frc.robot.subsystems.TurretSubsystem;
 
 public class Robot extends TimedRobot {
+    public final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(), "swerve"));
+    public final LimelightVision limelight = new LimelightVision(TurretConstants.LIMELIGHT_NAME);
+    public final Pigeon2 imu = new Pigeon2(13);
+    private final CommandXboxController driverController = new CommandXboxController(
+            OperatorConstants.DRIVER_CONTROLLER_PORT);
 
-    private Command autonomousCommand;
-    private RobotContainer robotContainer;
-    public static SparkMax turretMotor;
-    private TurretRotationCommand turretCommand;
+    public Command autonomousCommand;
+    public TurretSubsystem turret;
+    public AutoAim autoaim;
+
+    private void configureBindings() {
+        // Zero gyro on Y button press
+        // driverController.y().onTrue(Commands.runOnce(drivebase::zeroGyro));
+
+        // Lock wheels in X formation while A is held
+        driverController.a().whileTrue(Commands.run(drivebase::lock, drivebase));
+    }
+
+    public Command getAutonomousCommand() {
+        return Commands.print("No autonomous command configured");
+    }
 
     @Override
     public void robotInit() {
-        robotContainer = new RobotContainer();
-        turretCommand = new TurretRotationCommand(robotContainer.getLimelight());
-        CommandScheduler.getInstance().schedule(turretCommand);
-        SparkMaxConfig config_ = new SparkMaxConfig();
-        config_.idleMode(SparkBaseConfig.IdleMode.kBrake);
-        turretMotor = new SparkMax(23, MotorType.kBrushless);
-        turretMotor.configure(config_, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+        configureBindings();
+
+        // Default drive command: field-relative teleop
+        drivebase.setDefaultCommand(
+                drivebase.driveCommand(
+                        () -> MathUtil.applyDeadband(driverController.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
+                        () -> MathUtil.applyDeadband(driverController.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
+                        () -> MathUtil.applyDeadband(driverController.getRightX(),
+                                OperatorConstants.RIGHT_X_DEADBAND)));
+
+        turret = new TurretSubsystem(this);
+        autoaim = new AutoAim(turret, limelight);
+
     }
 
     @Override
@@ -44,7 +77,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousInit() {
-        autonomousCommand = robotContainer.getAutonomousCommand();
+        autonomousCommand = Commands.print("we should probably make an auton");
         if (autonomousCommand != null) {
             CommandScheduler.getInstance().schedule(autonomousCommand);
         }
@@ -59,6 +92,10 @@ public class Robot extends TimedRobot {
         if (autonomousCommand != null) {
             CommandScheduler.getInstance().cancel(autonomousCommand);
         }
+
+        // start autoaim
+        CommandScheduler.getInstance().schedule(autoaim);
+
     }
 
     @Override
