@@ -9,7 +9,9 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.units.Units;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -73,11 +75,26 @@ public class Robot extends TimedRobot {
     public void robotPeriodic() {
         CommandScheduler.getInstance().run();
 
-        // Update Odometry to Limelight
-        // if (limelight.hasTarget()) {
-        //     Pose2d pose = LimelightHelpers.getBotPose2d(TurretConstants.LIMELIGHT_NAME);
-        //     drivebase.resetOdometry(pose);
-        // }
+        // drivebase.swerveDrive.addVisionMeasurement(null, kDefaultPeriod);
+
+        LimelightHelpers.SetRobotOrientation(TurretConstants.LIMELIGHT_NAME, drivebase.swerveDrive.getOdometryHeading().getDegrees(), 0, 0,
+                0, 0, 0);
+        LimelightHelpers.PoseEstimate mt2 = LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2(TurretConstants.LIMELIGHT_NAME);
+
+        boolean doRejectUpdate = false;
+        // if our angular velocity is greater than 360 degrees per second, ignore vision
+        if (drivebase.swerveDrive.getGyro().getYawAngularVelocity().abs(Units.DegreesPerSecond) > 360) {
+            doRejectUpdate = true;
+        }
+        if (mt2.tagCount == 0) {
+            doRejectUpdate = true;
+        }
+        if (!doRejectUpdate) {
+            drivebase.swerveDrive.setVisionMeasurementStdDevs(VecBuilder.fill(.7, .7, 9999999));
+            drivebase.swerveDrive.addVisionMeasurement(
+                    mt2.pose,
+                    mt2.timestampSeconds);
+        }
     }
 
     @Override

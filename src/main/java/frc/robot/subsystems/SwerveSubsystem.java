@@ -20,7 +20,7 @@ import java.util.function.DoubleSupplier;
 
 public class SwerveSubsystem extends SubsystemBase {
 
-    private final SwerveDrive swerveDrive;
+    public final SwerveDrive swerveDrive;
 
     public SwerveSubsystem(File directory) {
         SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH;
