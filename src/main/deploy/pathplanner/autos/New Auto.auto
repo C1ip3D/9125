@@ -13,13 +13,19 @@
         {
           "type": "named",
           "data": {
-            "name": "Intake"
+            "name": "IntakeCommand"
           }
         },
         {
           "type": "path",
           "data": {
             "pathName": "New Path"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": null
           }
         }
       ]
