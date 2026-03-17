@@ -25,3 +25,8 @@ gradle-app.setting
 .classpath
 
 .DS_Store
+
+hs_err*.log
+ctre_sim/
+.vscode
+simgui*.json

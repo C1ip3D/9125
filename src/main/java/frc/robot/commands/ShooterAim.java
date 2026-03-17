@@ -1,10 +1,7 @@
 package frc.robot.commands;
 
-import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.LimelightVision;
-import frc.robot.Robot;
 import frc.robot.subsystems.ShooterSubsystem;
 
 public class ShooterAim extends Command {

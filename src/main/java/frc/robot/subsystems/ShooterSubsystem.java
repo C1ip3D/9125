@@ -30,7 +30,7 @@ public class ShooterSubsystem extends SubsystemBase {
         shooterMotor2 = new SparkMax(Constants.ShooterConstants.SHOOTER_MOTOR_2_ID, MotorType.kBrushless);
 
         SparkMaxConfig config_ = new SparkMaxConfig();
-        config_.idleMode(IdleMode.kBrake);
+        config_.idleMode(IdleMode.kCoast); // maintain intertia between spin ups
         shooterMotor1.configure(config_, ResetMode.kResetSafeParameters,
                 com.revrobotics.PersistMode.kPersistParameters);
         shooterMotor2.configure(config_, ResetMode.kResetSafeParameters,

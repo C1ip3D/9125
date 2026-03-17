@@ -10,6 +10,8 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.math.estimator.PoseEstimator;
+import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.Units;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -27,7 +29,7 @@ public class TurretSubsystem extends SubsystemBase {
 
     private static final double GEAR_RATIO = (double) (1.0 / 40.0); // 1:4 gearbox * 20:200 turret
 
-    private final Pigeon2 imu;
+    private final SwerveDrivePoseEstimator poseEstimator;
     private final SparkMax turretMotor = new SparkMax(TurretConstants.TURRET_MOTOR_ID, MotorType.kBrushless);
     private final PIDController pidController = new PIDController(kP, kI, kD);
     public boolean absoluteMode = true; // If true, turret will automatically compensate for robot yaw
@@ -43,7 +45,8 @@ public class TurretSubsystem extends SubsystemBase {
         pidController.setTolerance(TOLERANCE);
         pidController.reset();
 
-        imu = robot.imu;
+        // imu = robot.imu;
+        poseEstimator = robot.drivebase.swerveDrive.swerveDrivePoseEstimator;
     }
 
     public void set(Angle position) {
@@ -57,7 +60,9 @@ public class TurretSubsystem extends SubsystemBase {
         double turretPosition = turretMotor.getEncoder().getPosition() * GEAR_RATIO * 360;
 
         if (absoluteMode) {
-            double robotYaw = imu.getYaw().getValueAsDouble();
+            // double robotYaw = imu.getYaw().getValueAsDouble();
+            double robotYaw = poseEstimator.getEstimatedPosition().getRotation().getDegrees();
+            System.out.println("Robot Yaw" + robotYaw);
             turretPosition -= robotYaw;
         }
         double output = pidController.calculate(turretPosition);
