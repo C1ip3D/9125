@@ -1,0 +1,19 @@
+{
+  "mode": "meters",
+  "frame": {
+    "origin": "blue-left",
+    "units": "meters"
+  },
+  "fieldMeters": {
+    "width": 16.54,
+    "height": 8.21
+  },
+  "tags": [
+    { "id": 1, "x": 1.25, "y": 1.8, "rotationDeg": 0.0 },
+    { "id": 2, "x": 8.20, "y": 4.10, "rotationDeg": 180.0 }
+  ],
+  "obstacles": [
+    { "id": 1, "x": 4.25, "y": 2.10, "width": 0.8, "height": 0.6, "rotationDeg": 0.0 },
+    { "id": 2, "x": 10.80, "y": 5.20, "width": 1.0, "height": 0.7, "rotationDeg": 25.0 }
+  ]
+}

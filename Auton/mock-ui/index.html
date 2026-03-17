@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRC Mock Field UI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>FRC Mock Field UI</h1>
+      <div class="toolbar">
+        <button id="tabSimulation" class="active">Simulation</button>
+        <button id="tabDeployment">Deployment</button>
+        <button id="modeSelect" class="active">Select</button>
+        <button id="modeTag">Place AprilTag</button>
+        <button id="modeObstacle">Place Obstacle</button>
+        <button id="modeRobot">Place Robot</button>
+        <button id="runMockAuto">Run Mock Auto</button>
+        <button id="stopMockAuto">Stop</button>
+        <button id="deleteSelected">Delete Selected</button>
+        <button id="clearAll">Clear All</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section id="simulationCanvas" class="canvas-wrap">
+        <canvas id="fieldCanvas" width="1100" height="650"></canvas>
+        <div class="status" id="status">Mode: Select</div>
+      </section>
+
+      <aside class="panel">
+        <div id="simulationTabPanel">
+          <h2>Field Settings</h2>
+          <div class="row">
+            <label>Field Width (m)</label>
+            <input id="fieldWidthMeters" type="number" step="0.01" value="16.54" />
+          </div>
+          <div class="row">
+            <label>Field Height (m)</label>
+            <input id="fieldHeightMeters" type="number" step="0.01" value="8.21" />
+          </div>
+          <div class="row">
+            <label>Export Origin</label>
+            <select id="exportOrigin">
+              <option value="blue-left" selected>Blue Alliance (left-bottom)</option>
+              <option value="red-left">Red Alliance (left-bottom)</option>
+            </select>
+          </div>
+
+          <h2>Mock Robot</h2>
+          <div class="row">
+            <label>Target Tag ID</label>
+            <input id="targetTagId" type="number" min="1" placeholder="auto-nearest" />
+          </div>
+          <div class="row">
+            <label>Speed (px/s)</label>
+            <input id="robotSpeed" type="number" min="20" step="10" value="180" />
+          </div>
+          <div class="row">
+            <label>Run Engine</label>
+            <select id="runEngine">
+              <option value="js" selected>Browser JS Mock</option>
+              <option value="wpilib">WPILib Mock (Java)</option>
+            </select>
+          </div>
+
+          <h2>Selected Object</h2>
+          <div id="emptySelection" class="muted">No selection</div>
+
+          <div id="editor" class="hidden">
+            <div class="row">
+              <label>Type</label>
+              <input id="objType" disabled />
+            </div>
+
+            <div class="row">
+              <label>ID</label>
+              <input id="objId" disabled />
+            </div>
+
+            <div class="row">
+              <label>X (px)</label>
+              <input id="objX" type="number" />
+            </div>
+
+            <div class="row">
+              <label>Y (px)</label>
+              <input id="objY" type="number" />
+            </div>
+
+            <div class="row">
+              <label>Rotation (deg)</label>
+              <input id="objRot" type="number" />
+            </div>
+
+            <div id="obstacleFields" class="hidden">
+              <div class="row">
+                <label>Width (px)</label>
+                <input id="objW" type="number" min="10" />
+              </div>
+              <div class="row">
+                <label>Height (px)</label>
+                <input id="objH" type="number" min="10" />
+              </div>
+            </div>
+
+            <button id="applyEdits">Apply</button>
+          </div>
+        </div>
+
+        <div id="deploymentTabPanel" class="hidden">
+          <h2>Deploy</h2>
+          <div class="row">
+            <label>Team Number</label>
+            <input id="teamNumber" type="number" min="1" placeholder="e.g. 254" />
+          </div>
+          <div class="row">
+            <label>Deploy Target</label>
+            <select id="deployTarget">
+              <option value="sim" selected>Simulation Only</option>
+              <option value="wpilib-mock">WPILib Mock</option>
+              <option value="roborio">Real roboRIO</option>
+            </select>
+          </div>
+          <div class="row">
+            <label>Connection</label>
+            <select id="deployConnection">
+              <option value="usb" selected>USB</option>
+              <option value="ethernet">Ethernet</option>
+              <option value="wifi">Wi-Fi</option>
+            </select>
+          </div>
+
+          <h2>Joysticks</h2>
+          <div class="row">
+            <label>Driver Device</label>
+            <select id="driverJoystickType">
+              <option value="xbox" selected>Xbox Controller</option>
+              <option value="joystick">USB Joystick</option>
+              <option value="ps">PlayStation Controller</option>
+              <option value="custom">Custom HID</option>
+            </select>
+          </div>
+          <div class="row">
+            <label>Driver Port</label>
+            <input id="driverJoystickPort" type="number" min="0" value="0" />
+          </div>
+          <div class="row row-check">
+            <label>Driver Attached</label>
+            <input id="driverJoystickAttached" type="checkbox" checked />
+          </div>
+
+          <div class="row">
+            <label>Operator Device</label>
+            <select id="operatorJoystickType">
+              <option value="xbox">Xbox Controller</option>
+              <option value="joystick" selected>USB Joystick</option>
+              <option value="ps">PlayStation Controller</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="row">
+            <label>Operator Port</label>
+            <input id="operatorJoystickPort" type="number" min="0" value="1" />
+          </div>
+          <div class="row row-check">
+            <label>Operator Attached</label>
+            <input id="operatorJoystickAttached" type="checkbox" checked />
+          </div>
+          <button id="exportDeployConfig">Export Deploy Config</button>
+
+          <p class="muted deploy-note">
+            Browser UI cannot directly push robot code. Use WPILib deploy (`WPILib: Deploy Robot Code` or
+            `./gradlew deploy`) after exporting config.
+          </p>
+
+          <h2>Layout JSON</h2>
+          <div class="row">
+            <label>JSON Mode</label>
+            <select id="jsonMode">
+              <option value="pixels">Pixel Layout</option>
+              <option value="meters" selected>WPILib Meters</option>
+            </select>
+          </div>
+          <textarea id="layoutJson" rows="13" spellcheck="false"></textarea>
+          <div class="actions">
+            <button id="exportJson">Export</button>
+            <button id="importJson">Import</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
