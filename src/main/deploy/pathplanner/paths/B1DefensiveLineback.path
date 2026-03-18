@@ -3,29 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.189466666666667,
-        "y": 6.510088888888888
+        "x": 3.582922222222222,
+        "y": 7.338366666666666
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.0785999999999993,
-        "y": 4.229888888888889
+        "x": 4.537877777777778,
+        "y": 7.231177777777777
       },
       "isLocked": false,
-      "linkedName": "B3 End Sweep"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 0.484188888888889,
-        "y": 0.6903566333808839
+        "x": 13.522255555555557,
+        "y": 7.338366666666666
       },
       "prevControl": {
-        "x": 3.651133333333333,
-        "y": 1.4429777777777781
+        "x": 11.198251725216224,
+        "y": 7.644376225645076
+      },
+      "nextControl": {
+        "x": 14.385272279697855,
+        "y": 7.224730293224365
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 14.818266666666666,
+        "y": 4.3858
+      },
+      "prevControl": {
+        "x": 14.599199938792939,
+        "y": 4.701818162070779
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "B1DefensiveLinbackEnd"
     }
   ],
   "rotationTargets": [],
@@ -38,17 +54,17 @@
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
-    "unlimited": true
+    "unlimited": false
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 91.60819797583504
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 126.6070748126075
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

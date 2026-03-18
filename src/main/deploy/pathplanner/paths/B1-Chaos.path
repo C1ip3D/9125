@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.608359486447931,
-        "y": 7.573723252496434
+        "x": 4.576855555555556,
+        "y": 7.328622222222221
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.7653922967189715,
-        "y": 5.71055634807418
+        "x": 8.6208,
+        "y": 6.0521
       },
       "prevControl": {
-        "x": 7.868901569186875,
-        "y": 7.496091298145506
+        "x": 8.464888888888888,
+        "y": 7.815844444444445
       },
       "nextControl": {
-        "x": 7.666319893627207,
-        "y": 4.001557394741231
+        "x": 8.771537568121254,
+        "y": 4.346881260628309
       },
       "isLocked": false,
       "linkedName": null
@@ -69,11 +69,11 @@
       },
       "prevControl": {
         "x": 3.607786939293076,
-        "y": 0.5494012997305434
+        "y": 0.5494012997305433
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "B1 End Sweep"
+      "linkedName": "b1-chaosEnd"
     }
   ],
   "rotationTargets": [
@@ -86,8 +86,8 @@
       "rotationDegrees": -91.16913932790742
     },
     {
-      "waypointRelativePos": 1.6289978678038295,
-      "rotationDegrees": -90.1809453274088
+      "waypointRelativePos": 1.317842323651446,
+      "rotationDegrees": -107.4944987914541
     },
     {
       "waypointRelativePos": 3.257995735607653,

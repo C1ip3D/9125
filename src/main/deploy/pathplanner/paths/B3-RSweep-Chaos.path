@@ -12,7 +12,7 @@
         "y": 7.9815000000000005
       },
       "isLocked": false,
-      "linkedName": "B3 End Sweep"
+      "linkedName": "chaosb3end"
     },
     {
       "anchor": {
@@ -20,12 +20,12 @@
         "y": 6.899866666666667
       },
       "prevControl": {
-        "x": 6.777337718090027,
-        "y": 7.4694871660325095
+        "x": 6.653298637736187,
+        "y": 7.428474538070703
       },
       "nextControl": {
-        "x": 7.578144444444446,
-        "y": 5.028933333333333
+        "x": 8.036133333333334,
+        "y": 5.0776555555555545
       },
       "isLocked": false,
       "linkedName": null
@@ -63,11 +63,11 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.30124481327801145,
-      "rotationDegrees": 89.61651008907393
+      "rotationDegrees": 1.7633970175335778
     },
     {
       "waypointRelativePos": 0.69722814498934,
-      "rotationDegrees": 88.7264530613507
+      "rotationDegrees": -7.755290072788272
     },
     {
       "waypointRelativePos": 1.0938166311300634,

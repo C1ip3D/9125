@@ -16,32 +16,32 @@
     },
     {
       "anchor": {
-        "x": 3.7096,
-        "y": 7.406577777777779
+        "x": 3.9044888888888893,
+        "y": 7.445555555555555
       },
       "prevControl": {
-        "x": 3.027488888888889,
-        "y": 7.2799000000000005
+        "x": 3.21138873999579,
+        "y": 7.414977607810271
       },
       "nextControl": {
-        "x": 5.04814780120255,
-        "y": 7.655165226572539
+        "x": 5.229733333333334,
+        "y": 7.504022222222222
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 6.155455555555555,
-        "y": 6.3639222222222225
+        "x": 6.360088888888889,
+        "y": 6.4223888888888885
       },
       "prevControl": {
-        "x": 6.126222222222222,
-        "y": 7.484533333333334
+        "x": 6.213490567375883,
+        "y": 7.552058307606753
       },
       "nextControl": {
-        "x": 6.188431999190407,
-        "y": 5.099825216219535
+        "x": 6.525744444444444,
+        "y": 5.145866666666666
       },
       "isLocked": false,
       "linkedName": null
@@ -52,15 +52,24 @@
         "y": 2.0666222222222213
       },
       "prevControl": {
-        "x": 6.1944333333333335,
-        "y": 3.138511111111111
+        "x": 6.369833333333333,
+        "y": 3.167744444444444
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Rogue-Bottom"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 2.088796680497915,
+      "rotationDegrees": -85.6893221706363
+    },
+    {
+      "waypointRelativePos": 2.6863070539419036,
+      "rotationDegrees": -86.3272953678793
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -70,11 +79,11 @@
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
-    "unlimited": false
+    "unlimited": true
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 91.8087393224921
+    "rotation": -8.471144633014843
   },
   "reversed": false,
   "folder": "Blue",

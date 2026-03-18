@@ -17,7 +17,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B1-Sweep"
+                  "pathName": "B2-Rogue"
                 }
               }
             ]
@@ -36,26 +36,39 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 4.0
+                  "waitTime": 5.0
                 }
               }
             ]
           }
         },
         {
-          "type": "race",
+          "type": "sequential",
           "data": {
             "commands": [
               {
-                "type": "named",
+                "type": "race",
                 "data": {
-                  "name": "Intake.java"
+                  "commands": [
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "Intake.java"
+                      }
+                    },
+                    {
+                      "type": "path",
+                      "data": {
+                        "pathName": "B2-Rogue-B2T"
+                      }
+                    }
+                  ]
                 }
               },
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B1-RSweep"
+                  "pathName": "b2rogue3"
                 }
               }
             ]
@@ -74,7 +87,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 4.0
+                  "waitTime": 5.0
                 }
               }
             ]

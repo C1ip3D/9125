@@ -17,7 +17,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B1-Sweep"
+                  "pathName": "b3-half"
                 }
               }
             ]
@@ -55,7 +55,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B1-RSweep"
+                  "pathName": "b3-half2"
                 }
               }
             ]

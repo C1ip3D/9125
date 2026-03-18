@@ -17,7 +17,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B1-Sweep"
+                  "pathName": "B3-Sweep"
                 }
               }
             ]
@@ -55,7 +55,26 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B1-RSweep"
+                  "pathName": "B3-Human"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 3.0
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "BHuman-Shoot"
                 }
               }
             ]
