@@ -11,6 +11,7 @@ import com.ctre.phoenix6.hardware.Pigeon2;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.VecBuilder;
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation3d;
@@ -30,9 +31,11 @@ import frc.robot.commands.Intake;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.ShooterAim;
 import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.subsystems.SwerveAim;
 import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.subsystems.TransportSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
+import frc.robot.utils.HubPose;
 
 public class Robot extends LoggedRobot {
     public final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(), "swerve"));
@@ -46,6 +49,7 @@ public class Robot extends LoggedRobot {
     public TurretSubsystem turret;
     public ShooterSubsystem shooter;
     public TransportSubsystem transport;
+    public SwerveAim swerveAim;
 
     public Command autonomousCommand;
     public AutoAim autoaim;
@@ -70,15 +74,26 @@ public class Robot extends LoggedRobot {
                 drivebase.driveCommand(
                         () -> MathUtil.applyDeadband(driverController.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
                         () -> MathUtil.applyDeadband(driverController.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
-                        () -> MathUtil.applyDeadband(driverController.getRawAxis(2),
-                                OperatorConstants.RIGHT_X_DEADBAND) * 0.05));
+                        () -> {
+                            if (driverController.b().getAsBoolean()) {
+                                return swerveAim.rotationControl; // autoaim
+                            } else {
+                                return MathUtil.applyDeadband(driverController.getRawAxis(2),
+                                        OperatorConstants.RIGHT_X_DEADBAND) * 0.05;
+                            }
+                        }));
 
         driverController.a().whileTrue(new Shoot(transport)).onTrue(new InstantCommand(() -> {
             simulatedFuel = drivebase.getPose();
             flightTime = Timer.getTimestamp();
-            exitAngle = autoaim.targetAngle;
+            // exitAngle = autoaim.targetAngle;
+            // exitAngle = swerveAim.targetAngle;
+            exitAngle = drivebase.getPose().getRotation().getDegrees();
         }));
         driverController.leftTrigger().whileTrue(new Intake(transport));
+
+        // Auto Aim
+
     }
 
     public Command getAutonomousCommand() {
@@ -90,6 +105,7 @@ public class Robot extends LoggedRobot {
         turret = new TurretSubsystem(this);
         shooter = new ShooterSubsystem(this);
         transport = new TransportSubsystem();
+        swerveAim = new SwerveAim(this);
 
         autoaim = new AutoAim(turret, drivebase);
         shooterAim = new ShooterAim(drivebase, shooter);
@@ -196,20 +212,27 @@ public class Robot extends LoggedRobot {
         }
 
         // start autoaim
-        CommandScheduler.getInstance().schedule(autoaim);
-        // CommandScheduler.getInstance().schedule(shooterAim);
-        driverController.leftBumper().onTrue(new InstantCommand(() -> {
-            shooter.setRPM(shooter.rpm - 50);
-        }));
+        // fixed turret
+        // CommandScheduler.getInstance().schedule(autoaim);
+        CommandScheduler.getInstance().schedule(shooterAim);
 
-        driverController.rightBumper().onTrue(new InstantCommand(() -> {
-            shooter.setRPM(shooter.rpm + 50);
-        }));
+        // driverController.leftBumper().onTrue(new InstantCommand(() -> {
+        // shooter.setRPM(shooter.rpm - 50);
+        // }));
+
+        // driverController.rightBumper().onTrue(new InstantCommand(() -> {
+        // shooter.setRPM(shooter.rpm + 50);
+        // }));
+
+        // driverController.rightTrigger().whileTrue()
+        // drivebase.swerveDrive.set
 
     }
 
     @Override
     public void teleopPeriodic() {
+        System.out.println("shooter.rpm: " + shooter.rpm);
+
     }
 
     @Override

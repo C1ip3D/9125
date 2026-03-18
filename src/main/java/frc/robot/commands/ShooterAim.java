@@ -26,7 +26,7 @@ public class ShooterAim extends Command {
         double dist = Math
                 .sqrt(Math.pow(botPose.getX() - hubPose.getX(), 2) + Math.pow(botPose.getY() - hubPose.getY(), 2));
         
-                System.out.println("dist: " + dist);
+                // System.out.println("dist: " + dist);
         
         // temporary for sim
         double velocity = 1.5 * dist;

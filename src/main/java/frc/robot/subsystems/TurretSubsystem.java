@@ -1,6 +1,5 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix6.hardware.Pigeon2;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkMax;
@@ -10,7 +9,6 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.math.estimator.PoseEstimator;
 import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.Units;
@@ -45,6 +43,8 @@ public class TurretSubsystem extends SubsystemBase {
         pidController.setTolerance(TOLERANCE);
         pidController.reset();
 
+        pidController.setSetpoint(0); // hold at 0 for fixed turret
+
         // imu = robot.imu;
         poseEstimator = robot.drivebase.swerveDrive.swerveDrivePoseEstimator;
     }
@@ -52,19 +52,20 @@ public class TurretSubsystem extends SubsystemBase {
     public void set(Angle position) {
         // TODO: angle wrapping
 
-        pidController.setSetpoint(position.in(Units.Degrees));
+        // pidController.setSetpoint(position.in(Units.Degrees));
     }
 
     @Override
     public void periodic() {
         double turretPosition = turretMotor.getEncoder().getPosition() * GEAR_RATIO * 360;
 
-        if (absoluteMode) {
-            // double robotYaw = imu.getYaw().getValueAsDouble();
-            double robotYaw = poseEstimator.getEstimatedPosition().getRotation().getDegrees();
-            System.out.println("Robot Yaw" + robotYaw);
-            turretPosition -= robotYaw;
-        }
+        // Fixed turret
+        // if (absoluteMode) {
+        //     // double robotYaw = imu.getYaw().getValueAsDouble();
+        //     double robotYaw = poseEstimator.getEstimatedPosition().getRotation().getDegrees();
+        //     System.out.println("Robot Yaw" + robotYaw);
+        //     turretPosition -= robotYaw;
+        // }
         double output = pidController.calculate(turretPosition);
 
         output = MathUtil.clamp(output * 0.2, -MAX_SPEED, MAX_SPEED);
