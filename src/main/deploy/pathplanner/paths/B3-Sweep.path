@@ -1,0 +1,91 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.52151212553495,
+        "y": 0.6903566333808839
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.569543509272467,
+        "y": 0.5092154065620549
+      },
+      "isLocked": false,
+      "linkedName": "B3"
+    },
+    {
+      "anchor": {
+        "x": 7.170213980028531,
+        "y": 1.1043937232524967
+      },
+      "prevControl": {
+        "x": 6.510555076257686,
+        "y": 0.5116567372555049
+      },
+      "nextControl": {
+        "x": 8.062981455064193,
+        "y": 1.906590584878745
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.170213980028531,
+        "y": 6.862097004279601
+      },
+      "prevControl": {
+        "x": 7.98283101199822,
+        "y": 6.212003378703851
+      },
+      "nextControl": {
+        "x": 6.199814550641939,
+        "y": 7.638416547788873
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.9522111269614832,
+        "y": 6.862097004279601
+      },
+      "prevControl": {
+        "x": 2.9780884450784595,
+        "y": 7.638416547788873
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "B3 End Sweep"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": 90.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 91.73570458892843
+  },
+  "reversed": false,
+  "folder": "Blue",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 88.51528592231102
+  },
+  "useDefaultConstraints": true
+}
