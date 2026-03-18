@@ -20,6 +20,8 @@ public class ShooterSubsystem extends SubsystemBase {
     private static final double kD = 0.0;
     private static final double TOLERANCE = 5;
 
+    public double rpm = 0;
+
     // still not sure about using 2 seperate PID controllers, maybe we can average
     // the velocity of both motors?
     private final PIDController pidController1 = new PIDController(kP, kI, kD);
@@ -41,6 +43,7 @@ public class ShooterSubsystem extends SubsystemBase {
     }
 
     public void setRPM(double rpm) {
+        this.rpm = rpm;
         pidController1.setSetpoint(rpm);
         pidController2.setSetpoint(rpm);
     }

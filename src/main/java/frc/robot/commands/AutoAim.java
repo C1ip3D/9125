@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
+import frc.robot.utils.HubPose;
 
 public class AutoAim extends Command {
 
@@ -47,21 +48,9 @@ public class AutoAim extends Command {
         
         Pose2d botPose = drivebase.getPose();
 
-        Pose2d hubPose = Pose2d.kZero;
+        Pose2d hubPose = HubPose.getHub();
 
         // Should this be run every cycle or in init?
-        Optional<Alliance> ally = DriverStation.getAlliance();
-        if (ally.isPresent()) {
-            if (ally.get() == Alliance.Red) {
-                hubPose = new Pose2d(FieldConstants.RED_HUB_X, FieldConstants.HUB_Y, Rotation2d.kZero);
-            }
-            if (ally.get() == Alliance.Blue) {
-                hubPose = new Pose2d(FieldConstants.BLUE_HUB_X, FieldConstants.HUB_Y, Rotation2d.kZero);
-            }
-        } else {
-            System.out.println("Awaiting alliance color...");
-            return;
-        }
 
         System.out.println("Robot X: " + botPose.getX() + ", Robot Y: " + botPose.getY() + ", Hub X: " + hubPose.getX() + ", Hub Y: " + hubPose.getY());
         targetAngle = Math.toDegrees(Math.atan2(hubPose.getY() - botPose.getY(), hubPose.getX() - botPose.getX()));
