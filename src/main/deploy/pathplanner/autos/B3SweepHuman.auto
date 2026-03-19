@@ -11,19 +11,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Intake.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
+                  "name": "Intake"
                 }
               },
               {
@@ -42,25 +30,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot.java"
+                  "name": "Shoot"
                 }
               },
               {
                 "type": "wait",
                 "data": {
                   "waitTime": 4.0
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
                 }
               }
             ]
@@ -73,25 +49,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Intake.java"
+                  "name": "Intake"
                 }
               },
               {
                 "type": "path",
                 "data": {
                   "pathName": "B3-Human"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
                 }
               }
             ]
@@ -123,25 +87,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot.java"
+                  "name": "Shoot"
                 }
               },
               {
                 "type": "wait",
                 "data": {
                   "waitTime": 4.0
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
                 }
               }
             ]

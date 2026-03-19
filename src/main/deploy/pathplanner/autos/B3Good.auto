@@ -11,13 +11,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Intake"
+                  "name": "Intake.java"
                 }
               },
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B2-Rogue"
+                  "pathName": "b3-half"
                 }
               }
             ]
@@ -30,45 +30,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot"
+                  "name": "Shoot.java"
                 }
               },
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 5.0
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "sequential",
-          "data": {
-            "commands": [
-              {
-                "type": "race",
-                "data": {
-                  "commands": [
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Intake"
-                      }
-                    },
-                    {
-                      "type": "path",
-                      "data": {
-                        "pathName": "B2-Rogue-B2T"
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "b2rogue3"
+                  "waitTime": 4.53
                 }
               }
             ]
@@ -81,13 +49,32 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot"
+                  "name": "Intake.java"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "B3Good2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Shoot.java"
                 }
               },
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 5.0
+                  "waitTime": 2.0
                 }
               }
             ]

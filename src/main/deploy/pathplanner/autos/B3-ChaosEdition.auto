@@ -11,25 +11,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Intake.java"
+                  "name": "Intake"
                 }
               },
               {
                 "type": "path",
                 "data": {
                   "pathName": "B3-Chaos"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
                 }
               }
             ]
@@ -42,19 +30,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
+                  "name": "Shoot"
                 }
               },
               {
@@ -73,19 +49,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Intake.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
+                  "name": "Intake"
                 }
               },
               {
@@ -104,19 +68,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
+                  "name": "Shoot"
                 }
               },
               {

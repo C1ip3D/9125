@@ -5,21 +5,9 @@
     "data": {
       "commands": [
         {
-          "type": "race",
+          "type": "sequential",
           "data": {
             "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "ShooterAim.java"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoAim.java"
-                }
-              },
               {
                 "type": "sequential",
                 "data": {
@@ -37,7 +25,7 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "Intake.java"
+                              "name": "Intake"
                             }
                           }
                         ]
@@ -50,7 +38,7 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "Shoot.java"
+                              "name": "Shoot"
                             }
                           },
                           {
@@ -69,13 +57,13 @@
                           {
                             "type": "path",
                             "data": {
-                              "pathName": "New New Path"
+                              "pathName": "B1HalfGood2"
                             }
                           },
                           {
                             "type": "named",
                             "data": {
-                              "name": "Intake.java"
+                              "name": "Intake"
                             }
                           }
                         ]
