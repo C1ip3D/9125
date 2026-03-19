@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.5732667617689007,
-        "y": 7.392582025677603
+        "x": 3.5439444444444446,
+        "y": 7.299388888888888
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.576855555555556,
-        "y": 7.328622222222221
+        "x": 4.674300000000001,
+        "y": 7.377344444444444
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "realB1"
     },
     {
       "anchor": {
@@ -69,7 +69,7 @@
       },
       "prevControl": {
         "x": 3.607786939293076,
-        "y": 0.5494012997305433
+        "y": 0.5494012997305432
       },
       "nextControl": null,
       "isLocked": false,
@@ -103,7 +103,7 @@
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
-    "unlimited": true
+    "unlimited": false
   },
   "goalEndState": {
     "velocity": 0,

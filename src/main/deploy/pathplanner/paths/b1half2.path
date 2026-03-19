@@ -75,7 +75,7 @@
     },
     {
       "waypointRelativePos": 1.2,
-      "rotationDegrees": -71.97983265946026
+      "rotationDegrees": -71.97983265946027
     },
     {
       "waypointRelativePos": 2.0,
@@ -99,7 +99,7 @@
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
-    "unlimited": true
+    "unlimited": false
   },
   "goalEndState": {
     "velocity": 0,

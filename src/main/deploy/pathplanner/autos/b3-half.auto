@@ -19,6 +19,18 @@
                 "data": {
                   "pathName": "b3-half"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
               }
             ]
           }
@@ -37,6 +49,18 @@
                 "type": "wait",
                 "data": {
                   "waitTime": 4.0
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
                 }
               }
             ]
@@ -57,6 +81,18 @@
                 "data": {
                   "pathName": "b3-half2"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
               }
             ]
           }
@@ -75,6 +111,18 @@
                 "type": "wait",
                 "data": {
                   "waitTime": 4.0
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
                 }
               }
             ]

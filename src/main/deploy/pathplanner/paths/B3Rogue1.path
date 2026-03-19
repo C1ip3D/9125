@@ -3,45 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.5439444444444446,
-        "y": 7.299388888888888
+        "x": 3.5147111111111116,
+        "y": 0.6536777777777774
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.498900000000001,
-        "y": 7.1922
+        "x": 4.514711111111113,
+        "y": 0.6536777777777774
       },
       "isLocked": false,
-      "linkedName": "realB1"
+      "linkedName": "realB3"
     },
     {
       "anchor": {
-        "x": 13.522255555555557,
-        "y": 7.338366666666666
+        "x": 4.0,
+        "y": 6.0
       },
       "prevControl": {
-        "x": 11.198251725216224,
-        "y": 7.644376225645076
-      },
-      "nextControl": {
-        "x": 14.385272279697855,
-        "y": 7.224730293224365
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 14.818266666666666,
-        "y": 4.3858
-      },
-      "prevControl": {
-        "x": 14.599199938792939,
-        "y": 4.701818162070779
+        "x": 3.0,
+        "y": 6.0
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "B1DefensiveLinbackEnd"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -54,7 +38,7 @@
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
-    "unlimited": true
+    "unlimited": false
   },
   "goalEndState": {
     "velocity": 0,
@@ -64,7 +48,7 @@
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 90.77422016492812
   },
   "useDefaultConstraints": true
 }

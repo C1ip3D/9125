@@ -19,6 +19,18 @@
                 "data": {
                   "pathName": "B3-Chaos"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
               }
             ]
           }
@@ -31,6 +43,18 @@
                 "type": "named",
                 "data": {
                   "name": "Shoot.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
                 }
               },
               {
@@ -53,6 +77,18 @@
                 }
               },
               {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
                 "type": "path",
                 "data": {
                   "pathName": "B3-RSweep-Chaos"
@@ -69,6 +105,18 @@
                 "type": "named",
                 "data": {
                   "name": "Shoot.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
                 }
               },
               {

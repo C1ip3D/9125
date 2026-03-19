@@ -37,7 +37,7 @@
       },
       "prevControl": {
         "x": 6.7236738043342275,
-        "y": 1.7105891494486463
+        "y": 1.710589149448646
       },
       "nextControl": {
         "x": 6.587974322396576,
@@ -95,7 +95,7 @@
     },
     {
       "waypointRelativePos": 3.3499999999999996,
-      "rotationDegrees": 90.01636582242037
+      "rotationDegrees": 90.01636582242038
     }
   ],
   "constraintZones": [],
@@ -107,7 +107,7 @@
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
-    "unlimited": true
+    "unlimited": false
   },
   "goalEndState": {
     "velocity": 0.6,

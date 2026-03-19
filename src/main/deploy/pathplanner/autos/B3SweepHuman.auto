@@ -15,6 +15,18 @@
                 }
               },
               {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
+              },
+              {
                 "type": "path",
                 "data": {
                   "pathName": "B3-Sweep"
@@ -38,6 +50,18 @@
                 "data": {
                   "waitTime": 4.0
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
               }
             ]
           }
@@ -56,6 +80,18 @@
                 "type": "path",
                 "data": {
                   "pathName": "B3-Human"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
                 }
               }
             ]
@@ -94,6 +130,18 @@
                 "type": "wait",
                 "data": {
                   "waitTime": 4.0
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAim.java"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterAim.java"
                 }
               }
             ]

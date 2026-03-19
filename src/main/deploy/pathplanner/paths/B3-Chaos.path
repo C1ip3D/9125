@@ -4,15 +4,15 @@
     {
       "anchor": {
         "x": 3.5147111111111116,
-        "y": 0.7218888888888886
+        "y": 0.6536777777777774
       },
       "prevControl": null,
       "nextControl": {
         "x": 5.65848888888889,
-        "y": 0.6829111111111104
+        "y": 0.6146999999999991
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "realB3"
     },
     {
       "anchor": {
@@ -87,7 +87,7 @@
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
-    "unlimited": true
+    "unlimited": false
   },
   "goalEndState": {
     "velocity": 0,
@@ -97,7 +97,7 @@
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 88.97696981133218
+    "rotation": 90.77422016492812
   },
   "useDefaultConstraints": false
 }

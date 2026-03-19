@@ -8,43 +8,40 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.498900000000001,
-        "y": 7.1922
+        "x": 8.416166666666667,
+        "y": 8.264088888888889
       },
       "isLocked": false,
       "linkedName": "realB1"
     },
     {
       "anchor": {
-        "x": 13.522255555555557,
-        "y": 7.338366666666666
+        "x": 6.6816555555555555,
+        "y": 2.1932999999999994
       },
       "prevControl": {
-        "x": 11.198251725216224,
-        "y": 7.644376225645076
-      },
-      "nextControl": {
-        "x": 14.385272279697855,
-        "y": 7.224730293224365
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 14.818266666666666,
-        "y": 4.3858
-      },
-      "prevControl": {
-        "x": 14.599199938792939,
-        "y": 4.701818162070779
+        "x": 6.291877777777778,
+        "y": 3.138511111111111
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "B1DefensiveLinbackEnd"
+      "linkedName": "b1rogue1"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.16680497925311724,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 0.2647302904564345,
+      "rotationDegrees": -79.06291331676337
+    },
+    {
+      "waypointRelativePos": 0.8489626556016575,
+      "rotationDegrees": -91.29626830531689
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -54,11 +51,11 @@
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
-    "unlimited": true
+    "unlimited": false
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -16.144338780283427
   },
   "reversed": false,
   "folder": "Blue",
