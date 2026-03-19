@@ -1,14 +1,10 @@
 package frc.robot.subsystems;
 
-import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.config.PIDConstants;
-import com.pathplanner.lib.config.RobotConfig;
-import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
-import edu.wpi.first.wpilibj.DriverStation;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
@@ -37,28 +33,6 @@ public class SwerveSubsystem extends SubsystemBase {
 
         swerveDrive.setHeadingCorrection(false);
         swerveDrive.setCosineCompensator(!SwerveDriveTelemetry.isSimulation);
-
-        try {
-            RobotConfig config = RobotConfig.fromGUISettings();
-            AutoBuilder.configure(
-                this::getPose,
-                this::resetOdometry,
-                this::getRobotRelativeSpeeds,
-                this::driveRobotRelative,
-                new PPHolonomicDriveController(
-                    new PIDConstants(5.0, 0.0, 0.0),
-                    new PIDConstants(5.0, 0.0, 0.0)
-                ),
-                config,
-                () -> {
-                    var alliance = DriverStation.getAlliance();
-                    return alliance.isPresent() && alliance.get() == DriverStation.Alliance.Red;
-                },
-                this
-            );
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to configure AutoBuilder", e);
-        }
     }
 
     // --- Drive Commands ---
