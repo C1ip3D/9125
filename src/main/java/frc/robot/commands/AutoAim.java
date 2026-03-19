@@ -1,18 +1,9 @@
 package frc.robot.commands;
 
-import java.util.Optional;
 
 import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.geometry.Pose3d;
-import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Constants;
-import frc.robot.LimelightHelpers;
-import frc.robot.LimelightVision;
-import frc.robot.Constants.FieldConstants;
 import edu.wpi.first.units.Units;
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
 import frc.robot.utils.HubPose;
@@ -27,6 +18,8 @@ public class AutoAim extends Command {
     public AutoAim(TurretSubsystem turret, SwerveSubsystem drivebase) {
         this.turret = turret;
         this.drivebase = drivebase;
+
+        addRequirements(turret);
     }
 
     @Override

@@ -9,7 +9,6 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.Robot;
 
 public class ShooterSubsystem extends SubsystemBase {
     private final SparkMax shooterMotor1;
@@ -27,7 +26,7 @@ public class ShooterSubsystem extends SubsystemBase {
     private final PIDController pidController1 = new PIDController(kP, kI, kD);
     private final PIDController pidController2 = new PIDController(kP, kI, kD);
 
-    public ShooterSubsystem(Robot robot) {
+    public ShooterSubsystem() {
         shooterMotor1 = new SparkMax(Constants.ShooterConstants.SHOOTER_MOTOR_1_ID, MotorType.kBrushless);
         shooterMotor2 = new SparkMax(Constants.ShooterConstants.SHOOTER_MOTOR_2_ID, MotorType.kBrushless);
 

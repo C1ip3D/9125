@@ -1,6 +1,5 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix6.hardware.Pigeon2;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkMax;
@@ -10,12 +9,10 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.math.estimator.PoseEstimator;
 import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.Units;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Robot;
 import frc.robot.Constants.TurretConstants;
 
 public class TurretSubsystem extends SubsystemBase {
@@ -34,7 +31,7 @@ public class TurretSubsystem extends SubsystemBase {
     private final PIDController pidController = new PIDController(kP, kI, kD);
     public boolean absoluteMode = true; // If true, turret will automatically compensate for robot yaw
 
-    public TurretSubsystem(Robot robot) {
+    public TurretSubsystem(SwerveSubsystem drivebase) {
         SparkMaxConfig config = new SparkMaxConfig();
         config.idleMode(IdleMode.kBrake);
         config.smartCurrentLimit(TurretConstants.CURRENT_LIMIT);
@@ -46,7 +43,7 @@ public class TurretSubsystem extends SubsystemBase {
         pidController.reset();
 
         // imu = robot.imu;
-        poseEstimator = robot.drivebase.swerveDrive.swerveDrivePoseEstimator;
+        poseEstimator = drivebase.swerveDrive.swerveDrivePoseEstimator;
     }
 
     public void set(Angle position) {
