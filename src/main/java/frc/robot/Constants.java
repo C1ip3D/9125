@@ -12,11 +12,16 @@ public final class Constants {
         public static final int INTAKE_MOTOR_ID = 20;
         public static final int ROLLER_MOTOR_ID = 19;
         public static final int TRANSFER_MOTOR_ID = 18;
+        public static final int ARM_MOTOR_ID = 30;
+
 
         public static final double INTAKE_POWER = 0.5;
         public static final double ROLLER_INTAKE_POWER = 0.5;
         public static final double ROLLER_SHOOT_POWER = 0.5;
         public static final double TRANSFER_POWER = 0.5;
+
+        public static final double DESCEND_POINT = 0.7;
+        public static final double LIFT_POINT = 0.2;
     }
 
     public static final class DriveConstants {
