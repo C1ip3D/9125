@@ -35,6 +35,8 @@ import java.io.File;
 
 import org.littletonrobotics.junction.Logger;
 
+import com.pathplanner.lib.auto.AutoBuilder;
+
 /*
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -66,7 +68,7 @@ public class RobotContainer {
     double exitAngle = 0;
 
     // private static final String autoname = "My Auto";
-    private final SendableChooser<String> chooser = new SendableChooser<>();
+    private final SendableChooser<Command> chooser;
 
     private void configureBindings() {
         // Zero gyro on Y button press
@@ -118,8 +120,10 @@ public class RobotContainer {
         // shooter.setRPM(shooter.rpm + 50);
         // }));
 
-        chooser.setDefaultOption("Avaneesh set the default auto name here", "name of the auto here");
-        chooser.addOption("same here", "same thing here");
+        // chooser.setDefaultOption("Avaneesh set the default auto name here", "name of the auto here");
+        // chooser.addOption("same here", "same thing here");
+
+        chooser = AutoBuilder.buildAutoChooser();
 
         SmartDashboard.putData("Auto Chooser", chooser);
     }
@@ -178,15 +182,6 @@ public class RobotContainer {
     }
 
     public Command getAutonomousCommand() {
-        switch (chooser.getSelected()) {
-            case "blah blah":
-                // SwerveControllerCommand swerveControllerCommand =;
-
-                drivebase.resetOdometry(Pose2d.kZero); // REPLACE WITH START POSE SOMEHOW
-
-                return new InstantCommand(() -> {}); // REPLACE WITH SWERVE COMMAND
-            default:
-                return new InstantCommand(() -> {}); // backup command if something went wrong
-        }
+        return chooser.getSelected();
     }
 }
