@@ -26,6 +26,7 @@ import frc.robot.commands.AutoAim;
 import frc.robot.commands.Intake;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.ShooterAim;
+import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.subsystems.TransportSubsystem;
@@ -36,6 +37,7 @@ import java.io.File;
 import org.littletonrobotics.junction.Logger;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 
 /*
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -51,7 +53,8 @@ public class RobotContainer {
     public TurretSubsystem turret = new TurretSubsystem(drivebase);
     public ShooterSubsystem shooter = new ShooterSubsystem();
     public TransportSubsystem transport = new TransportSubsystem();
-
+    public ArmSubsystem arm = new ArmSubsystem();
+    
     // The driver's controller
     private final CommandXboxController driverController = new CommandXboxController(
             OperatorConstants.DRIVER_CONTROLLER_PORT);
@@ -75,9 +78,7 @@ public class RobotContainer {
         // driverController.y().onTrue(Commands.runOnce(drivebase::zeroGyro));
 
         // Lock wheels in X formation while A is held
-        driverController.a().whileTrue(Commands.run(drivebase::lock, drivebase));
-
-        driverController.x().whileTrue(new Shoot(transport));
+        driverController.x().whileTrue(Commands.run(drivebase::lock, drivebase));
 
         // Default drive command: field-relative teleop
         drivebase.setDefaultCommand(
@@ -87,7 +88,7 @@ public class RobotContainer {
                         () -> MathUtil.applyDeadband(driverController.getRawAxis(2),
                                 OperatorConstants.RIGHT_X_DEADBAND) * 0.05));
 
-        driverController.a().whileTrue(new Shoot(transport)).onTrue(new InstantCommand(() -> {
+        driverController.a().whileTrue(new Shoot(transport, arm)).onTrue(new InstantCommand(() -> {
             simulatedFuel = drivebase.getPose();
             flightTime = Timer.getTimestamp();
             exitAngle = autoaim.targetAngle;
@@ -104,6 +105,10 @@ public class RobotContainer {
 
         shooterAim = new ShooterAim(drivebase, shooter);
         shooter.setDefaultCommand(shooterAim);
+
+        // Auton commands
+        NamedCommands.registerCommand("Shoot", new Shoot(transport, arm));
+        NamedCommands.registerCommand("Intake", new Intake(transport));
 
         configureBindings();
 

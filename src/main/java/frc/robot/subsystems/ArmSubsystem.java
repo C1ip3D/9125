@@ -10,7 +10,6 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Robot;
 import frc.robot.Constants.TransportConstants;
 import frc.robot.Constants.TurretConstants;
 
@@ -27,7 +26,7 @@ public class ArmSubsystem extends SubsystemBase {
 
     public boolean descended = false;
 
-    public ArmSubsystem(Robot robot) {
+    public ArmSubsystem() {
         SparkMaxConfig config = new SparkMaxConfig();
         config.idleMode(IdleMode.kBrake);
         config.smartCurrentLimit(TurretConstants.CURRENT_LIMIT);

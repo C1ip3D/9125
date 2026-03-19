@@ -1,26 +1,25 @@
 package frc.robot.commands;
 
-
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.TransportSubsystem;
+import frc.robot.subsystems.ArmSubsystem;
 
-public class Intake extends Command {
-    TransportSubsystem transport;
+public class RaiseArm extends Command {
+    ArmSubsystem arm;
 
-    public Intake(TransportSubsystem transport) {
-        this.transport = transport;
+    public RaiseArm(ArmSubsystem arm) {
+        this.arm = arm;
 
-        addRequirements(transport);
+        addRequirements(arm);
     }
 
     @Override
     public void initialize() {
-        transport.setIntaking(true);
+        arm.setDescend(false);
     }
 
     @Override
     public void end(boolean interrupted) {
-        transport.setIntaking(false);
+        arm.setDescend(true);
     }
 
     @Override
