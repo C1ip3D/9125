@@ -34,8 +34,6 @@ import frc.robot.subsystems.TurretSubsystem;
 
 import java.io.File;
 
-import org.littletonrobotics.junction.Logger;
-
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 
@@ -61,19 +59,16 @@ public class RobotContainer {
     private final CommandPS4Controller operatorController = new CommandPS4Controller(
             OperatorConstants.OPERATOR_CONTROLLER_PORT);
 
+    Logging logging;
     AutoAim autoaim;
     ShooterAim shooterAim;
-
-    // AdvantageScope Sim
-    Pose3d turretMechanism;
-    Pose2d simulatedFuel = Pose2d.kZero;
-    double flightTime = 0;
-    double exitAngle = 0;
 
     // private static final String autoname = "My Auto";
     private final SendableChooser<Command> chooser;
 
     private void configureBindings() {
+        // ---- Driver controls
+
         // Zero gyro on Y button press
         // driverController.y().onTrue(Commands.runOnce(drivebase::zeroGyro));
 
@@ -90,18 +85,27 @@ public class RobotContainer {
                         //         OperatorConstants.RIGHT_X_DEADBAND) * 0.05));
                 ));
 
-        driverController.a().whileTrue(new Shoot(transport, arm)).onTrue(new InstantCommand(() -> {
-            simulatedFuel = drivebase.getPose();
-            flightTime = Timer.getTimestamp();
-            exitAngle = autoaim.targetAngle;
-        }));
-        driverController.leftTrigger().whileTrue(new Intake(transport));
+        // ---- Operator Controls
+
+        operatorController.cross().whileTrue(new Intake(transport));
+
+        operatorController.triangle().whileTrue(new Shoot(transport, arm));
+
+        // Variable arm control unless already overrided
+        if (arm.getCurrentCommand() == null) {
+            arm.setPosition(operatorController.getL2Axis());
+        }
+
+
+        // driverController.leftTrigger().whileTrue(new Intake(transport));
     }
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
      */
     public RobotContainer() {
+        logging = new Logging(this);
+        
         autoaim = new AutoAim(turret, drivebase);
         turret.setDefaultCommand(autoaim);
 
@@ -115,7 +119,6 @@ public class RobotContainer {
         configureBindings();
 
         // Simulation/AdvantaeScope Turret Mechanism
-        turretMechanism = new Pose3d(0, 0, 0, new Rotation3d(0, 0, 0));
 
         // Shooter tuning
         // CommandScheduler.getInstance().schedule(shooterAim);
@@ -133,59 +136,6 @@ public class RobotContainer {
         chooser = AutoBuilder.buildAutoChooser();
 
         SmartDashboard.putData("Auto Chooser", chooser);
-    }
-
-    public void periodic() {
-        CommandScheduler.getInstance().run();
-
-        LimelightHelpers.SetRobotOrientation(TurretConstants.LIMELIGHT_NAME,
-                drivebase.swerveDrive.getOdometryHeading().getDegrees(), 0, 0,
-                0, 0, 0);
-        LimelightHelpers.PoseEstimate mt2 = LimelightHelpers
-                .getBotPoseEstimate_wpiBlue_MegaTag2(TurretConstants.LIMELIGHT_NAME);
-
-        boolean doRejectUpdate = false;
-        // if our angular velocity is greater than 360 degrees per second, ignore vision
-        if (drivebase.swerveDrive.getGyro().getYawAngularVelocity().abs(Units.DegreesPerSecond) > 360) {
-            doRejectUpdate = true;
-        }
-        if (mt2.tagCount == 0) {
-            doRejectUpdate = true;
-        }
-        if (!doRejectUpdate) {
-            drivebase.swerveDrive.setVisionMeasurementStdDevs(VecBuilder.fill(.7, .7, 9999999));
-            drivebase.swerveDrive.addVisionMeasurement(
-                    mt2.pose,
-                    mt2.timestampSeconds);
-        }
-
-        // Advantage Scope logging
-        Pose2d robotPose = drivebase.getPose();
-        turretMechanism = new Pose3d(robotPose.getX(), robotPose.getY(), 1.5,
-                new Rotation3d(0, 0, Math.toRadians(autoaim.targetAngle)));
-        Logger.recordOutput("Turret Mechanism", turretMechanism);
-        Logger.recordOutput("Robot Pose", turretMechanism);
-
-        if (flightTime != 0) {
-            double velocity = shooter.rpm;
-            double theta = Math.toRadians(45);
-            double gravity = 9.81;
-            double dt = Timer.getTimestamp() - flightTime;
-
-            double x = velocity * Math.cos(theta) * dt;
-            double y = velocity * Math.cos(theta) * dt - (0.5 * gravity * (dt * dt));
-
-            double dx = Math.cos(Math.toRadians(exitAngle)) * x;
-            double dy = Math.sin(Math.toRadians(exitAngle)) * x;
-
-            Logger.recordOutput("Fuel", new Pose3d(simulatedFuel.getX() + (dx / 1), simulatedFuel.getY() + (dy / 1),
-                    (y), Rotation3d.kZero));
-
-            if (y < 0) {
-                // despawn
-                flightTime = 0;
-            }
-        }
     }
 
     public Command getAutonomousCommand() {

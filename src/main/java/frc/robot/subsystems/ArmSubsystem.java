@@ -45,10 +45,16 @@ public class ArmSubsystem extends SubsystemBase {
 
         if (this.descended) {
             pidController.setSetpoint(TransportConstants.DESCEND_POINT);
-        }
-        else {
+        } else {
             pidController.setSetpoint(TransportConstants.LIFT_POINT);
         }
+    }
+
+    public void setPosition(double pos) {
+        // TODO: change if decended is higher than lift
+        double interpolated = pos * (TransportConstants.LIFT_POINT - TransportConstants.DESCEND_POINT)
+                + TransportConstants.DESCEND_POINT;
+        pidController.setSetpoint(interpolated);
     }
 
     @Override

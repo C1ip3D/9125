@@ -37,6 +37,8 @@ public final class Constants {
         public static final int TURRET_MOTOR_ID = 23;
         public static final int CURRENT_LIMIT = 20; // amps — safe for a small turret NEO
         public static final String LIMELIGHT_NAME = "limelight";
+
+        public static final int RANGE = 180;
     }
 
     public static final class OperatorConstants {
