@@ -17,6 +17,7 @@ public class TransportSubsystem extends SubsystemBase {
 
     private boolean shooting = false;
     private boolean intaking = false;
+    private boolean reversing = false;
 
     public TransportSubsystem() {
         // Init motors
@@ -31,22 +32,30 @@ public class TransportSubsystem extends SubsystemBase {
     private void updateMotors() {
         double rollerPower = 0;
 
-        if (intaking) {
-            intakeMotor.set(TransportConstants.INTAKE_POWER);
-            rollerPower = TransportConstants.ROLLER_INTAKE_POWER;
-        } else {
-            intakeMotor.set(0);
-        }
-
-        // IMPORTANT: shooting power has to be set after intake power
-        if (shooting) {
+        if (reversing) {
+            intakeMotor.set(-TransportConstants.INTAKE_POWER);
+            rollerMotor.set(TransportConstants.ROLLER_INTAKE_POWER);
             transferMotor.set(TransportConstants.TRANSFER_POWER);
-            rollerPower = TransportConstants.ROLLER_SHOOT_POWER;
-        } else {
-            transferMotor.set(0);
-        }
 
-        rollerMotor.set(rollerPower);
+        } else {
+
+            if (intaking) {
+                intakeMotor.set(TransportConstants.INTAKE_POWER);
+                rollerPower = TransportConstants.ROLLER_INTAKE_POWER;
+            } else {
+                intakeMotor.set(0);
+            }
+
+            // IMPORTANT: shooting power has to be set after intake power
+            if (shooting) {
+                transferMotor.set(TransportConstants.TRANSFER_POWER);
+                rollerPower = TransportConstants.ROLLER_SHOOT_POWER;
+            } else {
+                transferMotor.set(0);
+            }
+
+            rollerMotor.set(rollerPower);
+        }
     }
 
     public void setShooting(boolean shooting) {
@@ -58,4 +67,10 @@ public class TransportSubsystem extends SubsystemBase {
         this.intaking = intaking;
         updateMotors();
     }
+
+    public void setReversing(boolean reversing) {
+        this.reversing = true;
+        updateMotors();
+    }
+
 }
