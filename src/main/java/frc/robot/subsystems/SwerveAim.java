@@ -7,13 +7,12 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.utils.HubPose;
 
 public class SwerveAim extends SubsystemBase {
 
-    private static final double kP = 0.02;
+    private static final double kP = 0.002;
     private static final double kI = 0.0;
     private static final double kD = 0.0;
 
@@ -21,7 +20,7 @@ public class SwerveAim extends SubsystemBase {
     private static final double TOLERANCE = 5;
 
     private final SwerveDrivePoseEstimator poseEstimator;
-    private final PIDController pidController = new PIDController(kP, kI, kD);
+    public final PIDController pidController = new PIDController(kP, kI, kD);
 
     public double targetAngle;
     public double rotationControl;

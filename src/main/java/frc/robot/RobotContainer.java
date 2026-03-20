@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands; 
+import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.WaitUntilCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OperatorConstants;
@@ -88,7 +90,6 @@ public class RobotContainer {
                 ));
 
         // ---- Operator Controls
-
         operatorController.cross().whileTrue(new Intake(transport));
 
         operatorController.triangle().whileTrue(new Shoot(transport, arm));
@@ -117,7 +118,9 @@ public class RobotContainer {
         shooter.setDefaultCommand(shooterAim);
 
         // Auton commands
-        NamedCommands.registerCommand("Shoot", new Shoot(transport, arm));
+        NamedCommands.registerCommand("Shoot", drivebase.driveCommand(() -> 0, () -> 0, () -> swerveAim.rotationControl)
+                .andThen(new WaitUntilCommand(() -> swerveAim.pidController.atSetpoint())).andThen(new Shoot(transport, arm).alongWith(new InstantCommand(logging::launchBall))));
+
         NamedCommands.registerCommand("Intake", new Intake(transport));
 
         configureBindings();

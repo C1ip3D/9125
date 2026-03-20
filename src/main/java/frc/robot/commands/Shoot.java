@@ -19,13 +19,13 @@ public class Shoot extends Command {
     @Override
     public void initialize() {
         transport.setShooting(true);
-        arm.setDescend(false);
+        // arm.setDescend(false);
     }
 
     @Override
     public void end(boolean interrupted) {
         transport.setShooting(false);
-        arm.setDescend(true);
+        // arm.setDescend(true);
 
     }
 
