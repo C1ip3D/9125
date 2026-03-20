@@ -49,19 +49,20 @@ public class TurretSubsystem extends SubsystemBase {
     public void set(Angle position) {
         // TODO: angle wrapping
 
-        pidController.setSetpoint(position.in(Units.Degrees));
+        // pidController.setSetpoint(position.in(Units.Degrees));
+        pidController.setSetpoint(0); // locked turret at 0
     }
 
     @Override
     public void periodic() {
         double turretPosition = turretMotor.getEncoder().getPosition() * GEAR_RATIO * 360;
 
-        if (absoluteMode) {
-            // double robotYaw = imu.getYaw().getValueAsDouble();
-            double robotYaw = poseEstimator.getEstimatedPosition().getRotation().getDegrees();
-            System.out.println("Robot Yaw" + robotYaw);
-            turretPosition -= robotYaw;
-        }
+        // if (absoluteMode) {
+        //     // double robotYaw = imu.getYaw().getValueAsDouble();
+        //     double robotYaw = poseEstimator.getEstimatedPosition().getRotation().getDegrees();
+        //     System.out.println("Robot Yaw" + robotYaw);
+        //     turretPosition -= robotYaw;
+        // }
         double output = pidController.calculate(turretPosition);
 
         output = MathUtil.clamp(output * 0.2, -MAX_SPEED, MAX_SPEED);

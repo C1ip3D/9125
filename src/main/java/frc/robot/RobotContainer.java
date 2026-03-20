@@ -22,12 +22,13 @@ import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.TurretConstants;
-import frc.robot.commands.AutoAim;
+// import frc.robot.commands.AutoAim;
 import frc.robot.commands.Intake;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.ShooterAim;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.subsystems.SwerveAim;
 import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.subsystems.TransportSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
@@ -52,7 +53,7 @@ public class RobotContainer {
     public ShooterSubsystem shooter = new ShooterSubsystem();
     public TransportSubsystem transport = new TransportSubsystem();
     public ArmSubsystem arm = new ArmSubsystem();
-    
+
     // The driver's controller
     private final CommandXboxController driverController = new CommandXboxController(
             OperatorConstants.DRIVER_CONTROLLER_PORT);
@@ -60,7 +61,8 @@ public class RobotContainer {
             OperatorConstants.OPERATOR_CONTROLLER_PORT);
 
     Logging logging;
-    AutoAim autoaim;
+    // AutoAim autoaim;
+    SwerveAim swerveAim;
     ShooterAim shooterAim;
 
     // private static final String autoname = "My Auto";
@@ -80,9 +82,16 @@ public class RobotContainer {
                 drivebase.driveCommand(
                         () -> MathUtil.applyDeadband(driverController.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
                         () -> MathUtil.applyDeadband(driverController.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
-                        () -> MathUtil.applyDeadband(driverController.getRightX(), OperatorConstants.RIGHT_X_DEADBAND)
-                        // () -> MathUtil.applyDeadband(driverController.getRawAxis(2),
-                        //         OperatorConstants.RIGHT_X_DEADBAND) * 0.05));
+                        () -> {
+                            if (driverController.b().getAsBoolean()) {
+                                return swerveAim.rotationControl;
+                            } else {
+                                return MathUtil.applyDeadband(driverController.getRightX(),
+                                        OperatorConstants.RIGHT_X_DEADBAND);
+                            }
+                        }
+                // () -> MathUtil.applyDeadband(driverController.getRawAxis(2),
+                // OperatorConstants.RIGHT_X_DEADBAND) * 0.05));
                 ));
 
         // ---- Operator Controls
@@ -96,7 +105,6 @@ public class RobotContainer {
             arm.setPosition(operatorController.getL2Axis());
         }
 
-
         // driverController.leftTrigger().whileTrue(new Intake(transport));
     }
 
@@ -105,10 +113,11 @@ public class RobotContainer {
      */
     public RobotContainer() {
         logging = new Logging(this);
-        
-        autoaim = new AutoAim(turret, drivebase);
-        turret.setDefaultCommand(autoaim);
 
+        // autoaim = new AutoAim(turret, drivebase);
+        // turret.setDefaultCommand(autoaim);
+
+        swerveAim = new SwerveAim(this);
         shooterAim = new ShooterAim(drivebase, shooter);
         shooter.setDefaultCommand(shooterAim);
 
@@ -130,7 +139,8 @@ public class RobotContainer {
         // shooter.setRPM(shooter.rpm + 50);
         // }));
 
-        // chooser.setDefaultOption("Avaneesh set the default auto name here", "name of the auto here");
+        // chooser.setDefaultOption("Avaneesh set the default auto name here", "name of
+        // the auto here");
         // chooser.addOption("same here", "same thing here");
 
         chooser = AutoBuilder.buildAutoChooser();

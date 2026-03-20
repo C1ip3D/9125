@@ -26,16 +26,16 @@ public class Logging {
     public void launchBall() {
         simulatedFuel = robot.drivebase.getPose();
         flightTime = Timer.getTimestamp();
-        exitAngle = robot.autoaim.targetAngle;
+        exitAngle = robot.swerveAim.targetAngle;
     }
 
     public void updateLogging() {
         // Advantage Scope logging
         Pose2d robotPose = robot.drivebase.getPose();
         turretMechanism = new Pose3d(robotPose.getX(), robotPose.getY(), 1.5,
-                new Rotation3d(0, 0, Math.toRadians(robot.autoaim.targetAngle)));
+                new Rotation3d(0, 0, Math.toRadians(robot.swerveAim.targetAngle)));
         Logger.recordOutput("Turret Mechanism", turretMechanism);
-        Logger.recordOutput("Robot Pose", turretMechanism);
+        Logger.recordOutput("Robot Pose", robotPose);
 
         if (flightTime != 0) {
             double velocity = robot.shooter.rpm;
