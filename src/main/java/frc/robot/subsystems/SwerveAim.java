@@ -2,12 +2,18 @@ package frc.robot.subsystems;
 
 import java.io.Serial;
 
+import com.ctre.phoenix6.hardware.Pigeon2;
+
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Transform2d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
+import frc.robot.Constants.DriveConstants;
 import frc.robot.utils.HubPose;
 
 public class SwerveAim extends SubsystemBase {
@@ -43,6 +49,11 @@ public class SwerveAim extends SubsystemBase {
         Pose2d botPose = robot.drivebase.getPose();
 
         Pose2d hubPose = HubPose.getHub();
+
+        double time = 2; // for now flight time is constant
+        ChassisSpeeds speeds = robot.drivebase.swerveDrive.getFieldVelocity();
+
+        botPose.plus(new Transform2d(speeds.vxMetersPerSecond * time, speeds.vyMetersPerSecond * time, Rotation2d.kZero));
 
         targetAngle = Math.toDegrees(
                 Math.atan2(hubPose.getY() - botPose.getY(), hubPose.getX() - botPose.getX()));
