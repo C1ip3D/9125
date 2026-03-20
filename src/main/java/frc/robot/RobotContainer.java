@@ -85,8 +85,10 @@ public class RobotContainer {
                 drivebase.driveCommand(
                         () -> MathUtil.applyDeadband(driverController.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
                         () -> MathUtil.applyDeadband(driverController.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
-                        () -> MathUtil.applyDeadband(driverController.getRawAxis(2),
-                                OperatorConstants.RIGHT_X_DEADBAND) * 0.05));
+                        () -> MathUtil.applyDeadband(driverController.getRightX(), OperatorConstants.RIGHT_X_DEADBAND)
+                        // () -> MathUtil.applyDeadband(driverController.getRawAxis(2),
+                        //         OperatorConstants.RIGHT_X_DEADBAND) * 0.05));
+                ));
 
         driverController.a().whileTrue(new Shoot(transport, arm)).onTrue(new InstantCommand(() -> {
             simulatedFuel = drivebase.getPose();
