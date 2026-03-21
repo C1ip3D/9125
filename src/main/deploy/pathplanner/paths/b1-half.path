@@ -70,6 +70,10 @@
       "rotationDegrees": -91.61812859372722
     },
     {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 0.0
+    },
+    {
       "waypointRelativePos": 0.6398340248962754,
       "rotationDegrees": -84.75854159700629
     },
@@ -78,8 +82,8 @@
       "rotationDegrees": -99.89758504488644
     },
     {
-      "waypointRelativePos": 2.0290456431534984,
-      "rotationDegrees": -5.987536895806812
+      "waypointRelativePos": 2.4297820823244614,
+      "rotationDegrees": 86.74318740927576
     },
     {
       "waypointRelativePos": 2.4572614107883655,
