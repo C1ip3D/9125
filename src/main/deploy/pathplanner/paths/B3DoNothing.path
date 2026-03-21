@@ -9,7 +9,7 @@
       "prevControl": null,
       "nextControl": {
         "x": 3.488463269474221,
-        "y": 0.7030158464840913
+        "y": 0.7030158464840914
       },
       "isLocked": false,
       "linkedName": "realB3"
@@ -51,4 +51,4 @@
     "rotation": 90.77422016492812
   },
   "useDefaultConstraints": false
-}
+}}
