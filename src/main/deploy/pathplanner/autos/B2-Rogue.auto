@@ -30,7 +30,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot"
+                  "name": "ShootAlliance"
                 }
               },
               {
@@ -81,7 +81,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot"
+                  "name": "ShootAlliance"
                 }
               },
               {
