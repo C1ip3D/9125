@@ -25,7 +25,7 @@
                           {
                             "type": "path",
                             "data": {
-                              "pathName": "B1-Rogue1"
+                              "pathName": "B3RogueFar1"
                             }
                           }
                         ]
@@ -63,7 +63,7 @@
                           {
                             "type": "path",
                             "data": {
-                              "pathName": "B1Rogue2"
+                              "pathName": "B3RogueFar2"
                             }
                           }
                         ]

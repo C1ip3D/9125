@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.5342000000000002,
-        "y": 7.406577777777777
+        "x": 3.5574733096085422,
+        "y": 7.580154211150653
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.664555555555556,
-        "y": 7.484533333333332
+        "x": 4.8808540925266914,
+        "y": 7.149786476868328
       },
       "isLocked": false,
       "linkedName": "realB1"
@@ -79,7 +79,7 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.307036247334761,
-      "rotationDegrees": 0.0
+      "rotationDegrees": -90.54713794763889
     },
     {
       "waypointRelativePos": 1,
@@ -113,7 +113,7 @@
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 2.0,
-    "rotation": 0.0
+    "rotation": -90.0
   },
   "useDefaultConstraints": false
 }

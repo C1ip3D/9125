@@ -44,7 +44,7 @@
                           {
                             "type": "wait",
                             "data": {
-                              "waitTime": 6.0
+                              "waitTime": 3.0
                             }
                           }
                         ]
@@ -63,10 +63,29 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "ShootAlliance"
+                              "name": "Intake"
                             }
                           }
                         ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "race",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "ShootAlliance"
+                      }
+                    },
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 2.5
                       }
                     }
                   ]
