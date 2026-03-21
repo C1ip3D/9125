@@ -16,32 +16,32 @@
     },
     {
       "anchor": {
-        "x": 8.250511111111111,
-        "y": 4.3858
+        "x": 7.848923841059602,
+        "y": 4.260057947019868
       },
       "prevControl": {
-        "x": 9.799877777777779,
-        "y": 7.932777777777778
+        "x": 9.39829050772627,
+        "y": 7.807035724797646
       },
       "nextControl": {
-        "x": 7.969531894988947,
-        "y": 3.7425519832171843
+        "x": 7.567944624937438,
+        "y": 3.616809930237052
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 6.145711111111111,
-        "y": 7.260411111111112
+        "x": 5.344246688741721,
+        "y": 7.360049668874171
       },
       "prevControl": {
-        "x": 7.487297375402396,
-        "y": 6.926668121123013
+        "x": 6.7163741721854295,
+        "y": 7.294710264900661
       },
       "nextControl": {
-        "x": 4.644151838671412,
-        "y": 7.633950177935944
+        "x": 3.798674006989028,
+        "y": 7.433648368005253
       },
       "isLocked": false,
       "linkedName": null
@@ -71,23 +71,27 @@
     },
     {
       "waypointRelativePos": 0.5,
-      "rotationDegrees": 0.0
+      "rotationDegrees": -16.16655598785772
     },
     {
       "waypointRelativePos": 0.6398340248962754,
-      "rotationDegrees": -84.75854159700629
+      "rotationDegrees": -49.24108520236998
     },
     {
       "waypointRelativePos": 0.9983402489626458,
       "rotationDegrees": -99.89758504488644
     },
     {
-      "waypointRelativePos": 2.4297820823244614,
-      "rotationDegrees": 86.74318740927576
+      "waypointRelativePos": 1.65254237288136,
+      "rotationDegrees": 122.001587680816
     },
     {
-      "waypointRelativePos": 2.4572614107883655,
-      "rotationDegrees": 0.0
+      "waypointRelativePos": 2.0230024213075035,
+      "rotationDegrees": 89.71666444444483
+    },
+    {
+      "waypointRelativePos": 2.4297820823244614,
+      "rotationDegrees": 89.5175619629773
     }
   ],
   "constraintZones": [
