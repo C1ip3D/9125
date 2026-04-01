@@ -1,9 +1,5 @@
 package frc.robot.subsystems;
 
-import java.io.Serial;
-
-import com.ctre.phoenix6.hardware.Pigeon2;
-
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
@@ -13,7 +9,6 @@ import edu.wpi.first.math.geometry.Transform2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
-import frc.robot.Constants.DriveConstants;
 import frc.robot.utils.HubPose;
 
 public class SwerveAim extends SubsystemBase {
@@ -70,6 +65,5 @@ public class SwerveAim extends SubsystemBase {
         rotationControl = pidController.calculate(swerveHeading);
 
         rotationControl = MathUtil.clamp(rotationControl, -MAX_SPEED, MAX_SPEED);
-
     }
 }

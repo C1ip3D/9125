@@ -31,15 +31,13 @@ public final class Constants {
     public static final class ShooterConstants {
         public static final int SHOOTER_MOTOR_1_ID = 21;
         public static final int SHOOTER_MOTOR_2_ID = 22;
-    }
+        
+        public static final double IDLE_SPEED = 500;
 
-    public static final class TurretConstants {
-        public static final int TURRET_MOTOR_ID = 23;
-        public static final int CURRENT_LIMIT = 20; // amps — safe for a small turret NEO
         public static final String LIMELIGHT_NAME = "limelight";
 
-        public static final int RANGE = 180;
     }
+
 
     public static final class OperatorConstants {
         public static final int DRIVER_CONTROLLER_PORT = 0;

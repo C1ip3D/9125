@@ -9,7 +9,7 @@ import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.units.Units;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.Constants.TurretConstants;
+import frc.robot.Constants.ShooterConstants;
 
 public class Robot extends LoggedRobot {
   private Command m_autonomousCommand;
@@ -48,11 +48,12 @@ public class Robot extends LoggedRobot {
     CommandScheduler.getInstance().run();
 
     // Limelight Localization
-    LimelightHelpers.SetRobotOrientation(TurretConstants.LIMELIGHT_NAME,
+    LimelightHelpers.SetRobotOrientation(ShooterConstants.LIMELIGHT_NAME,
         m_robotContainer.drivebase.swerveDrive.getOdometryHeading().getDegrees(), 0, 0,
         0, 0, 0);
+
     LimelightHelpers.PoseEstimate mt2 = LimelightHelpers
-        .getBotPoseEstimate_wpiBlue_MegaTag2(TurretConstants.LIMELIGHT_NAME);
+        .getBotPoseEstimate_wpiBlue_MegaTag2(ShooterConstants.LIMELIGHT_NAME);
 
     boolean doRejectUpdate = false;
     if (m_robotContainer.drivebase.swerveDrive.getGyro().getYawAngularVelocity().abs(Units.DegreesPerSecond) > 360) {

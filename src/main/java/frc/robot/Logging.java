@@ -11,16 +11,12 @@ public class Logging {
     RobotContainer robot;
 
     // AdvantageScope Sim
-    Pose3d turretMechanism;
     Pose2d simulatedFuel = Pose2d.kZero;
     double flightTime = 0;
     double exitAngle = 0;
 
     public Logging(RobotContainer robot) {
         this.robot = robot;
-
-        turretMechanism = new Pose3d(0, 0, 0, new Rotation3d(0, 0, 0));
-
     }
 
     public void launchBall() {
@@ -32,9 +28,6 @@ public class Logging {
     public void updateLogging() {
         // Advantage Scope logging
         Pose2d robotPose = robot.drivebase.getPose();
-        turretMechanism = new Pose3d(robotPose.getX(), robotPose.getY(), 1.5,
-                new Rotation3d(0, 0, Math.toRadians(robot.swerveAim.targetAngle)));
-        Logger.recordOutput("Turret Mechanism", turretMechanism);
         Logger.recordOutput("Robot Pose", robotPose);
 
         if (flightTime != 0) {

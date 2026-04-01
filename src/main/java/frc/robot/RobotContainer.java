@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj2.command.WaitUntilCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.Constants.TurretConstants;
+import frc.robot.Constants.ShooterConstants;
 // import frc.robot.commands.AutoAim;
 import frc.robot.commands.Intake;
 import frc.robot.commands.Shoot;
@@ -26,7 +26,6 @@ import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.SwerveAim;
 import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.subsystems.TransportSubsystem;
-import frc.robot.subsystems.TurretSubsystem;
 
 import java.io.File;
 
@@ -42,9 +41,8 @@ import com.pathplanner.lib.auto.NamedCommands;
 public class RobotContainer {
     // The robot's subsystems
     public final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(), "swerve"));
-    public final LimelightVision limelight = new LimelightVision(TurretConstants.LIMELIGHT_NAME);
+    public final LimelightVision limelight = new LimelightVision(ShooterConstants.LIMELIGHT_NAME);
 
-    public TurretSubsystem turret = new TurretSubsystem(drivebase);
     public ShooterSubsystem shooter = new ShooterSubsystem();
     public TransportSubsystem transport = new TransportSubsystem();
     public ArmSubsystem arm = new ArmSubsystem();
@@ -92,7 +90,7 @@ public class RobotContainer {
         // ---- Operator Controls
         operatorController.cross().whileTrue(new Intake(transport));
 
-        operatorController.triangle().whileTrue(new Shoot(transport, arm));
+        operatorController.triangle().whileTrue(new Shoot(transport, arm, shooter));
 
         operatorController.circle().whileTrue(new Unjam(transport));
 
@@ -110,16 +108,13 @@ public class RobotContainer {
     public RobotContainer() {
         logging = new Logging(this);
 
-        // autoaim = new AutoAim(turret, drivebase);
-        // turret.setDefaultCommand(autoaim);
-
         swerveAim = new SwerveAim(this);
         shooterAim = new ShooterAim(drivebase, shooter);
         shooter.setDefaultCommand(shooterAim);
 
         // Auton commands
         NamedCommands.registerCommand("Shoot", drivebase.driveCommand(() -> 0, () -> 0, () -> swerveAim.rotationControl)
-                .andThen(new WaitUntilCommand(() -> swerveAim.pidController.atSetpoint())).andThen(new Shoot(transport, arm).alongWith(new InstantCommand(logging::launchBall))));
+                .andThen(new WaitUntilCommand(() -> swerveAim.pidController.atSetpoint())).andThen(new Shoot(transport, arm, shooter).alongWith(new InstantCommand(logging::launchBall))));
 
         NamedCommands.registerCommand("Intake", new Intake(transport));
 

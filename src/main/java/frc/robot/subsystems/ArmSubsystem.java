@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import org.littletonrobotics.junction.Logger;
+
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkMax;
@@ -11,7 +13,6 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.TransportConstants;
-import frc.robot.Constants.TurretConstants;
 
 public class ArmSubsystem extends SubsystemBase {
     private static final double kP = 0.02;
@@ -29,7 +30,7 @@ public class ArmSubsystem extends SubsystemBase {
     public ArmSubsystem() {
         SparkMaxConfig config = new SparkMaxConfig();
         config.idleMode(IdleMode.kBrake);
-        config.smartCurrentLimit(TurretConstants.CURRENT_LIMIT);
+        // config.smartCurrentLimit(10);
 
         armMotor.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
         armMotor.set(MAX_SPEED);
@@ -65,5 +66,7 @@ public class ArmSubsystem extends SubsystemBase {
 
         output = MathUtil.clamp(output * 0.2, -MAX_SPEED, MAX_SPEED);
         armMotor.set(output);
+
+        Logger.recordOutput("Arm Lifted", !descended);
     }
 }
