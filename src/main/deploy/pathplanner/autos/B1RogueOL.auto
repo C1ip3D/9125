@@ -38,13 +38,13 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "Shoot"
+                              "name": "ShootAlliance"
                             }
                           },
                           {
                             "type": "wait",
                             "data": {
-                              "waitTime": 6.0
+                              "waitTime": 5.0
                             }
                           }
                         ]
@@ -76,13 +76,13 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "Shoot"
+                              "name": "ShootAlliance"
                             }
                           },
                           {
                             "type": "wait",
                             "data": {
-                              "waitTime": 6.0
+                              "waitTime": 5.0
                             }
                           }
                         ]

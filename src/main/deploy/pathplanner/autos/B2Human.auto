@@ -5,19 +5,37 @@
     "data": {
       "commands": [
         {
+          "type": "path",
+          "data": {
+            "pathName": "B2-Human"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 6.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "B2HUman2"
+          }
+        },
+        {
           "type": "race",
           "data": {
             "commands": [
               {
                 "type": "named",
                 "data": {
-                  "name": "Intake"
+                  "name": "Shoot"
                 }
               },
               {
-                "type": "path",
+                "type": "wait",
                 "data": {
-                  "pathName": "B2DefensiveLineback"
+                  "waitTime": 14.0
                 }
               }
             ]

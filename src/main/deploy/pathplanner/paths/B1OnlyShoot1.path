@@ -3,32 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.189466666666667,
-        "y": 6.510088888888888
+        "x": 3.5574733096085422,
+        "y": 7.580154211150653
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.0785999999999993,
-        "y": 4.229888888888889
+        "x": 2.360413907284768,
+        "y": 7.556067880794702
       },
       "isLocked": false,
-      "linkedName": "B3 End Sweep"
+      "linkedName": "realB1"
     },
     {
       "anchor": {
-        "x": 0.5556583629893244,
-        "y": 0.6297153024911029
+        "x": 2.4112334437086087,
+        "y": 6.430778145695363
       },
       "prevControl": {
-        "x": 3.7226028074337685,
-        "y": 1.382336446887997
+        "x": 1.4112334437086087,
+        "y": 6.430778145695363
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "humanPosition"
+      "linkedName": "ShootB1Only"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.24213075060532552,
+      "rotationDegrees": -89.4758890520787
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,13 +47,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 91.08092418703343
+    "rotation": 142.30575953331078
   },
   "reversed": false,
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 126.6070748126075
+    "rotation": -90.0
   },
   "useDefaultConstraints": true
 }

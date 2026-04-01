@@ -17,15 +17,15 @@
                       "data": {
                         "commands": [
                           {
-                            "type": "path",
-                            "data": {
-                              "pathName": "b1-half"
-                            }
-                          },
-                          {
                             "type": "named",
                             "data": {
                               "name": "Intake"
+                            }
+                          },
+                          {
+                            "type": "path",
+                            "data": {
+                              "pathName": "B3RogueFar1"
                             }
                           }
                         ]
@@ -38,13 +38,13 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "Shoot"
+                              "name": "ShootAlliance"
                             }
                           },
                           {
                             "type": "wait",
                             "data": {
-                              "waitTime": 6.0
+                              "waitTime": 4.5
                             }
                           }
                         ]
@@ -55,15 +55,34 @@
                       "data": {
                         "commands": [
                           {
-                            "type": "path",
-                            "data": {
-                              "pathName": "B1HalfGood2"
-                            }
-                          },
-                          {
                             "type": "named",
                             "data": {
                               "name": "Intake"
+                            }
+                          },
+                          {
+                            "type": "path",
+                            "data": {
+                              "pathName": "B3RogueFar2"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "race",
+                      "data": {
+                        "commands": [
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "ShootAlliance"
+                            }
+                          },
+                          {
+                            "type": "wait",
+                            "data": {
+                              "waitTime": 4.5
                             }
                           }
                         ]

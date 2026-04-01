@@ -17,7 +17,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B3-Chaos"
+                  "pathName": "B1-Sweep"
                 }
               }
             ]
@@ -55,7 +55,26 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B3-RSweep-Chaos"
+                  "pathName": "B1-HumanFromSweep"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 2.0
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "B2HUman2"
                 }
               }
             ]
@@ -74,7 +93,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 5.0
+                  "waitTime": 3.0
                 }
               }
             ]

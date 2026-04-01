@@ -17,7 +17,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B3-Sweep"
+                  "pathName": "B3CItrusAuto1"
                 }
               }
             ]
@@ -55,26 +55,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B3-Human"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "sequential",
-          "data": {
-            "commands": [
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 2.0
-                }
-              },
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "B2HUman2"
+                  "pathName": "B3CheesyPoofsAuto"
                 }
               }
             ]
@@ -93,7 +74,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 4.0
+                  "waitTime": 1.0
                 }
               }
             ]

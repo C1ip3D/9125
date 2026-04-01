@@ -17,7 +17,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B2-Rogue"
+                  "pathName": "b3-half"
                 }
               }
             ]
@@ -36,39 +36,26 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 5.0
+                  "waitTime": 3.53
                 }
               }
             ]
           }
         },
         {
-          "type": "sequential",
+          "type": "race",
           "data": {
             "commands": [
               {
-                "type": "race",
+                "type": "named",
                 "data": {
-                  "commands": [
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Intake"
-                      }
-                    },
-                    {
-                      "type": "path",
-                      "data": {
-                        "pathName": "B2-Rogue-B2T"
-                      }
-                    }
-                  ]
+                  "name": "Intake"
                 }
               },
               {
                 "type": "path",
                 "data": {
-                  "pathName": "b2rogue3"
+                  "pathName": "B3Good2"
                 }
               }
             ]
@@ -81,13 +68,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot"
+                  "name": "ShootAlliance"
                 }
               },
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 5.0
+                  "waitTime": 2.0
                 }
               }
             ]

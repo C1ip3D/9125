@@ -17,29 +17,16 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B2-Sweep"
+                  "pathName": "b1-half"
                 }
               }
             ]
           }
         },
         {
-          "type": "race",
+          "type": "wait",
           "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "Shoot"
-                }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 2.5
-                }
-              }
-            ]
+            "waitTime": 3.7
           }
         },
         {
@@ -55,26 +42,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B2RSweep"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "race",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "Shoot"
-                }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 2.5
+                  "pathName": "b1half2"
                 }
               }
             ]

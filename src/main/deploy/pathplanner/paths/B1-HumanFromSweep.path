@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.189466666666667,
-        "y": 6.510088888888888
+        "x": 2.559755555555556,
+        "y": 1.2480888888888888
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.0785999999999993,
-        "y": 4.229888888888889
+        "x": 2.186175496691127,
+        "y": 1.9368791390703426
       },
       "isLocked": false,
-      "linkedName": "B3 End Sweep"
+      "linkedName": "B1 End Sweep"
     },
     {
       "anchor": {
@@ -20,15 +20,20 @@
         "y": 0.6297153024911029
       },
       "prevControl": {
-        "x": 3.7226028074337685,
-        "y": 1.382336446887997
+        "x": 1.477669952393298,
+        "y": 1.1596904680540148
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "humanPosition"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.565375302663438,
+      "rotationDegrees": 158.58188830593232
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -48,7 +53,7 @@
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 126.6070748126075
+    "rotation": -129.07818181444003
   },
   "useDefaultConstraints": true
 }
