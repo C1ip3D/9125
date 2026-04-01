@@ -32,7 +32,8 @@ public class Logging {
 
         if (flightTime != 0) {
             double velocity = robot.shooter.rpm;
-            double theta = Math.toRadians(45);
+            // double velocity = 50;
+            double theta = Math.toRadians(35);
             double gravity = 9.81;
             double dt = Timer.getTimestamp() - flightTime;
 

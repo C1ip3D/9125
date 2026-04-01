@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
+import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
@@ -11,9 +12,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.TransportConstants;
 
 public class TransportSubsystem extends SubsystemBase {
-    final SparkMax intakeMotor = new SparkMax(TransportConstants.INTAKE_MOTOR_ID, MotorType.kBrushless);
+    final SparkFlex intakeMotor = new SparkFlex(TransportConstants.INTAKE_MOTOR_ID, MotorType.kBrushless);
     final SparkMax rollerMotor = new SparkMax(TransportConstants.ROLLER_MOTOR_ID, MotorType.kBrushless);
-    final SparkMax transferMotor = new SparkMax(TransportConstants.TRANSFER_MOTOR_ID, MotorType.kBrushless);
+    final SparkFlex transferMotor = new SparkFlex(TransportConstants.TRANSFER_MOTOR_ID, MotorType.kBrushless);
 
     private boolean shooting = false;
     private boolean intaking = false;

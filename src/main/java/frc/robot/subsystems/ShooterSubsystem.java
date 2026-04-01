@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
@@ -15,8 +16,8 @@ import frc.robot.Constants;
 import frc.robot.Constants.ShooterConstants;
 
 public class ShooterSubsystem extends SubsystemBase {
-    private final SparkMax shooterMotor1;
-    private final SparkMax shooterMotor2;
+    private final SparkFlex shooterMotor1;
+    private final SparkFlex shooterMotor2;
 
     private static final double kP = 0.02;
     private static final double kI = 0.0;
@@ -32,8 +33,8 @@ public class ShooterSubsystem extends SubsystemBase {
     private final PIDController pidController2 = new PIDController(kP, kI, kD);
 
     public ShooterSubsystem() {
-        shooterMotor1 = new SparkMax(Constants.ShooterConstants.SHOOTER_MOTOR_1_ID, MotorType.kBrushless);
-        shooterMotor2 = new SparkMax(Constants.ShooterConstants.SHOOTER_MOTOR_2_ID, MotorType.kBrushless);
+        shooterMotor1 = new SparkFlex(Constants.ShooterConstants.SHOOTER_MOTOR_1_ID, MotorType.kBrushless);
+        shooterMotor2 = new SparkFlex(Constants.ShooterConstants.SHOOTER_MOTOR_2_ID, MotorType.kBrushless);
 
         SparkMaxConfig config_ = new SparkMaxConfig();
         config_.idleMode(IdleMode.kCoast); // maintain intertia between spin ups

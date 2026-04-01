@@ -12,7 +12,8 @@ public final class Constants {
         public static final int INTAKE_MOTOR_ID = 20;
         public static final int ROLLER_MOTOR_ID = 19;
         public static final int TRANSFER_MOTOR_ID = 18;
-        public static final int ARM_MOTOR_ID = 30;
+        public static final int ARM_MOTOR_1_ID = 30;
+        public static final int ARM_MOTOR_2_ID = 29;
 
 
         public static final double INTAKE_POWER = 0.5;

@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.WaitUntilCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -90,14 +91,20 @@ public class RobotContainer {
         // ---- Operator Controls
         operatorController.cross().whileTrue(new Intake(transport));
 
-        operatorController.triangle().whileTrue(new Shoot(transport, arm, shooter));
+        operatorController.triangle()
+                .whileTrue(new Shoot(transport, arm, shooter).alongWith(new InstantCommand(logging::launchBall)));
 
         operatorController.circle().whileTrue(new Unjam(transport));
 
         // Variable arm control unless already overrided
-        if (arm.getCurrentCommand() == null) {
-            arm.setPosition(operatorController.getL2Axis());
-        }
+        // if (arm.getCurrentCommand() == null) {
+
+        arm.setDefaultCommand(
+                new RunCommand(() -> {
+                    arm.setPosition(operatorController.getL2Axis());
+                }, arm));
+        // arm.setPosition(operatorController.getRawAxis(3));
+        // }
 
         // driverController.leftTrigger().whileTrue(new Intake(transport));
     }
@@ -113,8 +120,14 @@ public class RobotContainer {
         shooter.setDefaultCommand(shooterAim);
 
         // Auton commands
-        NamedCommands.registerCommand("Shoot", drivebase.driveCommand(() -> 0, () -> 0, () -> swerveAim.rotationControl)
-                .andThen(new WaitUntilCommand(() -> swerveAim.pidController.atSetpoint())).andThen(new Shoot(transport, arm, shooter).alongWith(new InstantCommand(logging::launchBall))));
+        NamedCommands.registerCommand("Shoot",
+                new InstantCommand(logging::launchBall)
+                        .andThen(drivebase.driveCommand(() -> 0, () -> 0, () -> swerveAim.rotationControl)
+                                .andThen(new Shoot(transport, arm, shooter))));
+
+        NamedCommands.registerCommand("Shoot Alliance",
+                new InstantCommand(logging::launchBall)
+                        .andThen(new Shoot(transport, arm, shooter)));
 
         NamedCommands.registerCommand("Intake", new Intake(transport));
 
