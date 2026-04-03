@@ -12,7 +12,7 @@
         "y": 2.673962040332148
       },
       "isLocked": false,
-      "linkedName": "B3CitrusAuto"
+      "linkedName": "b3inverseCiturs"
     },
     {
       "anchor": {
@@ -89,45 +89,45 @@
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "cheesypoofsb3"
+      "linkedName": "b3inverseCiturs"
     }
   ],
   "rotationTargets": [
     {
       "waypointRelativePos": 0.5682819383259868,
-      "rotationDegrees": 0.0
+      "rotationDegrees": -178.40527908856095
     },
     {
       "waypointRelativePos": 1.5814977973568436,
-      "rotationDegrees": 0.0
+      "rotationDegrees": -178.1177224900526
     },
     {
       "waypointRelativePos": 1.951541850220266,
-      "rotationDegrees": 91.21861933830162
+      "rotationDegrees": -87.89473553548339
     },
     {
-      "waypointRelativePos": 2.8149779735682854,
-      "rotationDegrees": 91.75092061022823
+      "waypointRelativePos": 2.8245192307692166,
+      "rotationDegrees": -85.39278767268675
     },
     {
       "waypointRelativePos": 3.0792951541850018,
-      "rotationDegrees": -20.21115072469691
+      "rotationDegrees": 160.84931468068683
     },
     {
       "waypointRelativePos": 3.83700440528635,
-      "rotationDegrees": -119.80121597937793
+      "rotationDegrees": 65.20054293192334
     },
     {
       "waypointRelativePos": 4.118942731277524,
-      "rotationDegrees": -177.43998277067072
+      "rotationDegrees": 5.906296895087266
     },
     {
       "waypointRelativePos": 4.3656387665198295,
-      "rotationDegrees": -176.81243169129885
+      "rotationDegrees": 0.8274618746356387
     },
     {
       "waypointRelativePos": 4.894273127753341,
-      "rotationDegrees": 176.93411650606663
+      "rotationDegrees": -4.881560039318316
     }
   ],
   "constraintZones": [],
@@ -150,13 +150,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -128.54734974483486
+    "rotation": -131.76360281011554
   },
   "reversed": false,
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 53.35057076169087
+    "rotation": -131.76360281011554
   },
   "useDefaultConstraints": true
 }

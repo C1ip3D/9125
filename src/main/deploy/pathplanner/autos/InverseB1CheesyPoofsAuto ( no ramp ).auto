@@ -17,7 +17,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "B3CItrusAuto1"
+                  "pathName": "B1CitrusAutoInverse"
                 }
               }
             ]
@@ -55,7 +55,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "InvertedB3CheesyPoofsAuto"
+                  "pathName": "Inverse B1CHeesyPoofsAuto"
                 }
               }
             ]
@@ -74,7 +74,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 1.0
+                  "waitTime": 3.0
                 }
               }
             ]

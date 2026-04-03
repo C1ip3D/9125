@@ -12,7 +12,7 @@
         "y": 0.7480664294187431
       },
       "isLocked": false,
-      "linkedName": "realB3"
+      "linkedName": null
     },
     {
       "anchor": {
@@ -48,16 +48,16 @@
     },
     {
       "anchor": {
-        "x": 5.956773428232504,
-        "y": 2.749276393831553
+        "x": 5.736283112582782,
+        "y": 0.6300910596026483
       },
       "prevControl": {
-        "x": 6.92769360959742,
-        "y": 3.1593970913960545
+        "x": 6.707203293947698,
+        "y": 1.0402117571671496
       },
       "nextControl": {
-        "x": 4.985853246867587,
-        "y": 2.3391556962670514
+        "x": 4.765362931217865,
+        "y": 0.21997036203814657
       },
       "isLocked": false,
       "linkedName": null
@@ -68,38 +68,38 @@
         "y": 3.029015421115065
       },
       "prevControl": {
-        "x": 3.6543060498220656,
-        "y": 2.8676275207591937
+        "x": 0.8503476821192062,
+        "y": 0.03477649006622485
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "B3CitrusAuto"
+      "linkedName": "b3inverseCiturs"
     }
   ],
   "rotationTargets": [
     {
       "waypointRelativePos": 0.4663461538461514,
-      "rotationDegrees": 0.0
+      "rotationDegrees": -175.07187960102408
     },
     {
       "waypointRelativePos": 1.0114537444933909,
-      "rotationDegrees": 89.70729916020454
+      "rotationDegrees": -112.66437133211356
     },
     {
       "waypointRelativePos": 1.8149779735682832,
-      "rotationDegrees": 93.61841252725648
+      "rotationDegrees": -82.97173261246806
     },
     {
       "waypointRelativePos": 1.9559471365638708,
-      "rotationDegrees": -156.24472829645862
+      "rotationDegrees": 15.96640101422555
     },
     {
       "waypointRelativePos": 2.2167400881057353,
-      "rotationDegrees": -104.83025678151878
+      "rotationDegrees": 56.873001646353686
     },
     {
       "waypointRelativePos": 2.7735682819383416,
-      "rotationDegrees": -76.8615277255691
+      "rotationDegrees": 66.59109024305864
     },
     {
       "waypointRelativePos": 2.9427312775330434,
@@ -137,13 +137,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 53.35057076169087
+    "rotation": -131.76360281011554
   },
   "reversed": false,
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -0.6434702104592109
+    "rotation": -178.97234914820305
   },
   "useDefaultConstraints": true
 }
