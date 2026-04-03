@@ -84,12 +84,12 @@
         "y": 3.029015421115065
       },
       "prevControl": {
-        "x": -1.1012574139976272,
-        "y": 0.12403321470937101
+        "x": -1.1012574139976263,
+        "y": 0.12403321470937145
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "B3CitrusAuto"
+      "linkedName": "cheesypoofsb3"
     }
   ],
   "rotationTargets": [
@@ -150,13 +150,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -133.3153156821037
+    "rotation": 48.78336932275065
   },
   "reversed": false,
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -133.3153156821037
+    "rotation": 47.87554331928853
   },
   "useDefaultConstraints": true
 }

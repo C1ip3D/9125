@@ -9,7 +9,7 @@
       "prevControl": null,
       "nextControl": {
         "x": 3.5585888594050554,
-        "y": 0.20859490716124818
+        "y": 0.20859490716124815
       },
       "isLocked": false,
       "linkedName": "realB3"
@@ -48,7 +48,7 @@
   "folder": "Blue",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 90.77422016492812
+    "rotation": -0.6434702104592109
   },
   "useDefaultConstraints": false
 }
